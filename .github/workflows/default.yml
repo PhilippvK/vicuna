@@ -10,6 +10,8 @@ jobs:
   verilator:
     runs-on: ubuntu-22.04
     steps:
+      - name: A
+        run: df -h
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -19,6 +21,9 @@ jobs:
           remove-android: 'true'
           remove-haskell: 'true'
           remove-codeql: 'true'
+
+      - name: B
+        run: df -h
 
       - uses: actions/cache@v2
         id: cache-verilator
@@ -48,6 +53,8 @@ jobs:
     needs: verilator
     runs-on: ubuntu-22.04
     steps:
+      - name: A
+        run: df -h
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -67,6 +74,8 @@ jobs:
         with:
           path: /opt/verilator
           key: ubuntu-22_04-verilator-4_210
+      - name: B
+        run: df -h
 
       - name: Abort if no cache
         if: steps.cache-verilator.outputs.cache-hit != 'true'
@@ -95,6 +104,8 @@ jobs:
         unit: [lsu, alu, mul, sld, elem, csr, misc]
         main_core: [ibex, cv32e40x]
     steps:
+      - name: A
+        run: df -h
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -114,6 +125,8 @@ jobs:
         with:
           path: /opt/verilator
           key: ubuntu-22_04-verilator-4_210
+      - name: B
+        run: df -h
 
       - name: Abort if no cache
         if: steps.cache-verilator.outputs.cache-hit != 'true'
