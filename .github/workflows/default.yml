@@ -15,8 +15,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 40960
-          temp-reserve-mb: 4096
+          root-reserve-mb: 32768
+          temp-reserve-mb: 16384
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
@@ -58,8 +58,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 40960
-          temp-reserve-mb: 4096
+          root-reserve-mb: 32768
+          temp-reserve-mb: 16384
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
@@ -109,8 +109,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 40960
-          temp-reserve-mb: 4096
+          root-reserve-mb: 32768
+          temp-reserve-mb: 16384
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
