@@ -152,6 +152,7 @@ jobs:
             fi
             echo "$line" > test/${{ matrix.unit }}/test_configs.conf
             vcd=`echo "${{ matrix.unit }}_${{ matrix.main_core }}_${line}.vcd" | sed 's/  */_/g'`
+            df
             make -C test ${{ matrix.unit }} CORE=${{ matrix.main_core }} FULL_LOG=1 TRACE_VCD=$vcd
             if [ $? -ne 0 ]; then
               retval=1
