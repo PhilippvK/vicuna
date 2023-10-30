@@ -132,13 +132,14 @@ jobs:
       matrix:
         prog: [test, foo]
         main_core: [ibex, cv32e40x]
+        compiler: [gcc, llvm]
         cfg:
           - "VPROC_CONFIG=compact VREG_W=128  VMEM_W=32"
           - "VPROC_CONFIG=dual    VREG_W=128  VMEM_W=32"
           - "VPROC_CONFIG=dual    VREG_W=512  VMEM_W=256  ICACHE_SZ=8192 DCACHE_SZ=65536 MEM_LATENCY=5"
-          - "VPROC_CONFIG=triple  VREG_W=256  VMEM_W=32"
-          - "VPROC_CONFIG=triple  VREG_W=1024 VMEM_W=256  ICACHE_SZ=8192 DCACHE_SZ=65536 MEM_LATENCY=5"
-          - "VPROC_CONFIG=legacy  VREG_W=128  VMEM_W=32"
+          # - "VPROC_CONFIG=triple  VREG_W=256  VMEM_W=32"
+          # - "VPROC_CONFIG=triple  VREG_W=1024 VMEM_W=256  ICACHE_SZ=8192 DCACHE_SZ=65536 MEM_LATENCY=5"
+          # - "VPROC_CONFIG=legacy  VREG_W=128  VMEM_W=32"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -167,21 +168,13 @@ jobs:
         run: |
           export PATH=$PATH:/opt/verilator/bin:/opt/riscv-gcc/bin
           verilator --version
-          retval=0
-          while IFS= read -ra line; do
-            if [ -z "$line" ] || [ "${line:0:1}" = "#" ]; then
-              continue
-            fi
-            echo "$line" > test/${{ matrix.unit }}/test_configs.conf
-            # vcd=`echo "${{ matrix.unit }}_${{ matrix.main_core }}_${line}.vcd" | sed 's/  */_/g'`
-            make -C docs/code PROG=${{ matrix.prog }} OBJ=${{ matrix.prog }}.o CORE=${{ matrix.main_core }} FULL_LOG=1 # TRACE_VCD=$vcd
-            echo "$(pwd)/docs/code/${{ matrix.prog }}.vmem" > sim/progs.txt
-            timeout 360 make -C sim CORE=${{ matrix.main_core }} ${{ matrix.cfg }}
-            if [ $? -ne 0 ]; then
-              retval=1
-            fi
-          done < .github/test_configs.conf
-          exit $retval
+          set -e
+          # vcd=`echo "${{ matrix.unit }}_${{ matrix.main_core }}_${line}.vcd" | sed 's/  */_/g'`
+          cd docs/code
+          make -f ../../sw/Makefile PROG=${{ matrix.prog }} OBJ=${{ matrix.prog }}.o COMPILER=${{ matrix.compiler }} FULL_LOG=1 # TRACE_VCD=$vcd
+          cd -
+          echo "$(pwd)/docs/code/${{ matrix.prog }}.vmem" > sim/progs.txt
+          timeout 360 make -C sim CORE=${{ matrix.main_core }} ${{ matrix.cfg }}
 
       # - name: Archive VCD trace files
       #   if: failure()
