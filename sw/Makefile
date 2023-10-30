@@ -40,7 +40,8 @@ RISCV_FLAGS := -march=$(ARCH) -mabi=ilp32 -static -mcmodel=medany             \
                -fvisibility=hidden -nostdlib -nostartfiles -Wall              \
                $(CC_SPECIFIC_OPTIONS)
 
-CFLAGS := $(CFLAGS) -I$(SW_DIR)/lib/
+CFLAGS := $(CFLAGS) -I$(SW_DIR)/lib/ -ffunction-sections -fdata-sections
+LDFLAGS := $(LDFLAGS) -Xlinker --gc-sections
 
 PROG ?= test
 OBJ  ?= test.o
