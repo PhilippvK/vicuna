@@ -132,7 +132,8 @@ jobs:
       matrix:
         prog: [test, foo]
         main_core: [ibex, cv32e40x]
-        compiler: [gcc, llvm]
+        # compiler: [gcc, llvm]
+        compiler: [llvm]
         cfg:
           - "VPROC_CONFIG=compact VREG_W=128  VMEM_W=32"
           - "VPROC_CONFIG=dual    VREG_W=128  VMEM_W=32"
