@@ -20,7 +20,7 @@ STACK_LEN = 0x4000; /* 16 kB */
 SECTIONS
 {
     .vectors 0 : {
-        KEEP(*(.vectors))
+        *(.vectors)
     } >boot
 
     .text : {
