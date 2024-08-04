@@ -160,6 +160,7 @@ int main(int argc, char **argv) {
         }
 
         // simulate program execution
+        size_t cycles = 0;
         {
             int i;
             for (i = 0; i < mem_latency; i++) {
@@ -256,8 +257,11 @@ int main(int argc, char **argv) {
                     end_cnt++;
                 }
                 abort_cnt = (top->mem_req_o == mem_req_o_tmp) ? abort_cnt + 1 : 0;
+                // printf("abort_cnt=%d\n", abort_cnt);
+                cycles += 1;
             }
         }
+        printf("\n%lu cycles\n", cycles);
 
         // write dump file
         {
