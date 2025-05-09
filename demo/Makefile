@@ -17,6 +17,16 @@ GET_PERF_TCL := get_max_clk.tcl
 CORE     ?= ibex
 CORE_DIR := $(DEMO_DIR)/../$(CORE)/
 
+ifeq ($(CORE), ibex)
+  CLK_START ?= 80
+  CLK_STEP  ?= 16
+else
+ifeq ($(BOARD), cv32e40x)
+  CLK_START ?= 40
+  CLK_STEP  ?= 16
+endif
+endif
+
 # board and associated part, constraints file and clock info
 BOARD  ?= nexysvideo
 CONSTR ?= $(BOARD).xdc
@@ -54,6 +64,36 @@ all: proj
 # vector coprocessor configuration file generation (defines VMEM_W and VREG_W)
 VPROC_CONFIG_PKG := $(PROJ_DIR)/vproc_config.sv
 VMEM_W			 := 32
+
+# default
+# VREG_W       := 128
+# VPROC_CONFIG := compact
+# VPORT_POLICY := few
+
+# VPROC_CONFIG := legacy
+
+# small
+VREG_W       := 128
+VPROC_CONFIG := dual
+# VPROC_CONFIG := dual-zve32x
+VPORT_POLICY := few
+
+# small_new
+# VREG_W       := 128
+# # VPROC_CONFIG := dual
+# VPROC_CONFIG := dual-zve32x
+# VPORT_POLICY := few
+
+# medium
+# VREG_W       := 512
+# VPROC_CONFIG := dual
+# VPORT_POLICY := few
+
+# fast
+# VREG_W       := 2048
+# VPROC_CONFIG := dual
+# VPORT_POLICY := some
+
 include $(DEMO_DIR)/../config.mk
 
 proj: $(VPROC_CONFIG_PKG)
@@ -66,4 +106,5 @@ proj: $(VPROC_CONFIG_PKG)
 
 perf: proj
 	cd $(PROJ_DIR) && vivado -mode batch -source $(abspath $(GET_PERF_TCL))   \
-	    -tclargs vicuna_demo/vicuna_demo.xpr 80 16 sysclk
+	    -tclargs vicuna_demo/vicuna_demo.xpr $(CLK_START) $(CLK_STEP) sysclk
+	    # -tclargs vicuna_demo/vicuna_demo.xpr 80 16 sysclk
