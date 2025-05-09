@@ -130,7 +130,7 @@ include $(VPROC_DIR)/config.mk
 
 proj: $(VPROC_CONFIG_PKG)
 	cd $(PROJ_DIR) && vivado -mode batch -source $(abspath $(GEN_DEMO_TCL))   \
-	    -tclargs $(abspath $(DEMO_DIR)) $(abspath $(VPROC_DIR)) $(abspath $(CORE_DIR)) $(abspath $(FPNEW_DIR)) $(abspath $(FPU_SS_DIR)) $(VPROC_CONFIG_PKG)   \
+	    -tclargs $(abspath $(DEMO_DIR))/rtl_vicuna2 $(abspath $(VPROC_DIR)) $(abspath $(CORE_DIR)) $(abspath $(FPNEW_DIR)) $(abspath $(FPU_SS_DIR)) $(VPROC_CONFIG_PKG)   \
 	    $(PART) $(abspath $(CONSTR)) $(abspath $(RAM_FILE))                   \
 	    $(DIFF_CLK) $(CLK_PER) $(SV_DEFINES);                                               \
 	echo "";                                                                  \
