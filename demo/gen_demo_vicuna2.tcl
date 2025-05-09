@@ -13,7 +13,7 @@ if {$argc != 12} {
 }
 
 # get command line arguments:
-set demo_dir    [lindex $argv 0]
+set demo_rtl_dir    [lindex $argv 0]
 set vproc_dir    [lindex $argv 1]
 set core_dir     [lindex $argv 2]
 set fpnew_dir     [lindex $argv 3]
@@ -62,10 +62,10 @@ set_property -name "simulator_language" -value "Mixed" -objects $obj
 # add source files:
 set obj [get_filesets sources_1]
 set src_list {}
-lappend src_list "$demo_dir/rtl/demo_top.sv"
-lappend src_list "$demo_dir/rtl/ram.sv"
-lappend src_list "$demo_dir/rtl/uart_rx.sv"
-lappend src_list "$demo_dir/rtl/uart_tx.sv"
+lappend src_list "$demo_rtl_dir/demo_top.sv"
+lappend src_list "$demo_rtl_dir/ram.sv"
+lappend src_list "$demo_rtl_dir/uart_rx.sv"
+lappend src_list "$demo_rtl_dir/uart_tx.sv"
 lappend src_list "$vproc_dir/rtl/vproc_pkg.sv"
 lappend src_list "$config_file"
 foreach file {
@@ -169,7 +169,7 @@ add_files -fileset $obj -norecurse -scan_for_includes $src_list
 # add simulation only files:
 set obj [get_filesets sim_1]
 set src_list {}
-lappend src_list "$demo_dir/rtl/demo_tb.sv"
+lappend src_list "$demo_rtl_dir/demo_tb.sv"
 add_files -fileset $obj -norecurse -scan_for_includes $src_list
 
 set_property include_dirs $fpnew_dir/src/common_cells/include [get_filesets sources_1]

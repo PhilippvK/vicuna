@@ -9,6 +9,7 @@
 
 # Unignore makefiles
 !Makefile
+!Makefile2
 
 # Ignore all files with extensions that could be binary files
 *.o
@@ -21,6 +22,7 @@
 # Ignore log files and other temporary files
 *.log
 *.txt
+!requirements.txt
 *.csv
 *.vcd
 *.fst
