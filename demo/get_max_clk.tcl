@@ -35,8 +35,9 @@ if {$argc != 5} {
 }
 
 # get the period of the PLL input clock, i.e., the reference clock period
-update_compile_order -fileset sources_1
+# update_compile_order -fileset sources_1
 synth_design -rtl
+# synth_design -rtl -include_dirs {/work/git/vicuna2/vicuna2_tinyml_benchmarking/rtl/fpu_ss/fpnew/src/common_cells/include}
 set ref_clk [get_property PERIOD [get_clocks $clk_name]]
 
 # open output log file
@@ -98,6 +99,7 @@ for {set step 0} 1 {incr step} {
 
     # run synthesize and implementation
     reset_runs {synth_1 impl_1}
+    set_param pwropt.maxFaninFanoutToNetRatio 2000
     launch_runs synth_1 -quiet; list
     wait_on_run synth_1; list
     launch_runs impl_1 -to_step route_design -quiet; list
