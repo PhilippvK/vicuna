@@ -1,0 +1,127 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Tue May  6 22:44:31 2025
+| Host         : return running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_utilization -hierarchical -file utilization_report.rpt
+| Design       : demo_top
+| Device       : 7k325tffg900-2
+| Design State : Routed
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|                       Instance                      |                 Module                 | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| demo_top                                            |                                  (top) |      14128 |      12989 |    1024 |  115 | 12963 |     64 |      0 |         19 |
+|   (demo_top)                                        |                                  (top) |          0 |          0 |       0 |    0 |     1 |      0 |      0 |          0 |
+|   hwregs                                            |                            hwreg_iface |         51 |         46 |       0 |    5 |    77 |      0 |      0 |          0 |
+|     (hwregs)                                        |                            hwreg_iface |         18 |         18 |       0 |    0 |    10 |      0 |      0 |          0 |
+|     uart                                            |                             uart_iface |         33 |         28 |       0 |    5 |    67 |      0 |      0 |          0 |
+|       (uart)                                        |                             uart_iface |          9 |          4 |       0 |    5 |    19 |      0 |      0 |          0 |
+|       rx_inst                                       |                                uart_rx |         13 |         13 |       0 |    0 |    32 |      0 |      0 |          0 |
+|       tx_inst                                       |                                uart_tx |         11 |         11 |       0 |    0 |    16 |      0 |      0 |          0 |
+|   u_ram                                             |                                  ram32 |          0 |          0 |       0 |    0 |     1 |     64 |      0 |          0 |
+|   vproc                                             |                              vproc_top |      14078 |      12944 |    1024 |  110 | 12884 |      0 |      0 |         19 |
+|     (vproc)                                         |                              vproc_top |          5 |          4 |       0 |    1 |    51 |      0 |      0 |          0 |
+|     u_core                                          |                               ibex_top |       3074 |       3074 |       0 |    0 |  1895 |      0 |      0 |          1 |
+|       (u_core)                                      |                               ibex_top |          0 |          0 |       0 |    0 |     2 |      0 |      0 |          0 |
+|       core_clock_gate_i                             |                      prim_clock_gating |          2 |          2 |       0 |    0 |     1 |      0 |      0 |          0 |
+|       gen_regfile_ff.register_file_i                |                  ibex_register_file_ff |        671 |        671 |       0 |    0 |   992 |      0 |      0 |          0 |
+|       u_ibex_core                                   |                              ibex_core |       2403 |       2403 |       0 |    0 |   900 |      0 |      0 |          1 |
+|         (u_ibex_core)                               |                              ibex_core |          2 |          2 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         cs_registers_i                              |                      ibex_cs_registers |        141 |        141 |       0 |    0 |   385 |      0 |      0 |          0 |
+|           (cs_registers_i)                          |                      ibex_cs_registers |          1 |          1 |       0 |    0 |     4 |      0 |      0 |          0 |
+|           mcycle_counter_i                          |                           ibex_counter |         60 |         60 |       0 |    0 |    64 |      0 |      0 |          0 |
+|           minstret_counter_i                        |                        ibex_counter_16 |          0 |          0 |       0 |    0 |    64 |      0 |      0 |          0 |
+|           u_dcsr_csr                                |               ibex_csr__parameterized4 |         10 |         10 |       0 |    0 |     9 |      0 |      0 |          0 |
+|           u_depc_csr                                |               ibex_csr__parameterized0 |         20 |         20 |       0 |    0 |    31 |      0 |      0 |          0 |
+|           u_dscratch0_csr                           |            ibex_csr__parameterized0_17 |          7 |          7 |       0 |    0 |    32 |      0 |      0 |          0 |
+|           u_dscratch1_csr                           |            ibex_csr__parameterized0_18 |          0 |          0 |       0 |    0 |    32 |      0 |      0 |          0 |
+|           u_mcause_csr                              |               ibex_csr__parameterized2 |          5 |          5 |       0 |    0 |     6 |      0 |      0 |          0 |
+|           u_mepc_csr                                |            ibex_csr__parameterized0_19 |          6 |          6 |       0 |    0 |    31 |      0 |      0 |          0 |
+|           u_mie_csr                                 |               ibex_csr__parameterized1 |          6 |          6 |       0 |    0 |    18 |      0 |      0 |          0 |
+|           u_mscratch_csr                            |            ibex_csr__parameterized0_20 |          1 |          1 |       0 |    0 |    32 |      0 |      0 |          0 |
+|           u_mstatus_csr                             |                               ibex_csr |          6 |          6 |       0 |    0 |     6 |      0 |      0 |          0 |
+|           u_mtval_csr                               |            ibex_csr__parameterized0_21 |         17 |         17 |       0 |    0 |    32 |      0 |      0 |          0 |
+|           u_mtvec_csr                               |               ibex_csr__parameterized3 |          3 |          3 |       0 |    0 |    24 |      0 |      0 |          0 |
+|         ex_block_i                                  |                          ibex_ex_block |        418 |        418 |       0 |    0 |    75 |      0 |      0 |          1 |
+|           alu_i                                     |                               ibex_alu |         30 |         30 |       0 |    0 |     0 |      0 |      0 |          0 |
+|           gen_multdiv_fast.multdiv_i                |                      ibex_multdiv_fast |        388 |        388 |       0 |    0 |    75 |      0 |      0 |          1 |
+|         id_stage_i                                  |                          ibex_id_stage |        358 |        358 |       0 |    0 |    80 |      0 |      0 |          0 |
+|           (id_stage_i)                              |                          ibex_id_stage |         30 |         30 |       0 |    0 |    69 |      0 |      0 |          0 |
+|           controller_i                              |                        ibex_controller |        328 |        328 |       0 |    0 |    11 |      0 |      0 |          0 |
+|         if_stage_i                                  |                          ibex_if_stage |       1384 |       1384 |       0 |    0 |   293 |      0 |      0 |          0 |
+|           (if_stage_i)                              |                          ibex_if_stage |       1016 |       1016 |       0 |    0 |    94 |      0 |      0 |          0 |
+|           gen_prefetch_buffer.prefetch_buffer_i     |                   ibex_prefetch_buffer |        369 |        369 |       0 |    0 |   199 |      0 |      0 |          0 |
+|             (gen_prefetch_buffer.prefetch_buffer_i) |                   ibex_prefetch_buffer |         32 |         32 |       0 |    0 |    66 |      0 |      0 |          0 |
+|             fifo_i                                  |                        ibex_fetch_fifo |        337 |        337 |       0 |    0 |   133 |      0 |      0 |          0 |
+|         load_store_unit_i                           |                   ibex_load_store_unit |        108 |        108 |       0 |    0 |    67 |      0 |      0 |          0 |
+|         wb_stage_i                                  |                          ibex_wb_stage |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|     v_core                                          |                             vproc_core |      11004 |       9871 |    1024 |  109 | 10938 |      0 |      0 |         18 |
+|       (v_core)                                      |                             vproc_core |        149 |        149 |       0 |    0 |   458 |      0 |      0 |          0 |
+|       dec                                           |                          vproc_decoder |        285 |        285 |       0 |    0 |     0 |      0 |      0 |          0 |
+|       dispatcher                                    |                       vproc_dispatcher |         16 |         16 |       0 |    0 |    32 |      0 |      0 |          0 |
+|       genblk9[0].pipe                               |                 vproc_pipeline_wrapper |       5560 |       5503 |       0 |   57 |  5078 |      0 |      0 |          2 |
+|         pipeline                                    |                         vproc_pipeline |       5560 |       5503 |       0 |   57 |  5078 |      0 |      0 |          2 |
+|           (pipeline)                                |                         vproc_pipeline |        649 |        649 |       0 |    0 |   272 |      0 |      0 |          0 |
+|           pack                                      |                         vproc_vregpack |        691 |        691 |       0 |    0 |   671 |      0 |      0 |          0 |
+|           unit_mux                                  |                         vproc_unit_mux |       1415 |       1415 |       0 |    0 |   751 |      0 |      0 |          2 |
+|             genblk1[0].unit                         |                     vproc_unit_wrapper |        344 |        344 |       0 |    0 |   273 |      0 |      0 |          2 |
+|               lsu                                   |                              vproc_lsu |        344 |        344 |       0 |    0 |   273 |      0 |      0 |          2 |
+|                 (lsu)                               |                              vproc_lsu |         49 |         49 |       0 |    0 |   153 |      0 |      0 |          2 |
+|                 lsu_queue                           |            vproc_queue__parameterized0 |        292 |        292 |       0 |    0 |   117 |      0 |      0 |          0 |
+|                 trans_complete_queue                |            vproc_queue__parameterized1 |          3 |          3 |       0 |    0 |     3 |      0 |      0 |          0 |
+|             genblk1[1].unit                         |     vproc_unit_wrapper__parameterized0 |        790 |        790 |       0 |    0 |   351 |      0 |      0 |          0 |
+|               (genblk1[1].unit)                     |     vproc_unit_wrapper__parameterized0 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|               alu                                   |                              vproc_alu |        789 |        789 |       0 |    0 |   351 |      0 |      0 |          0 |
+|             genblk1[4].unit                         |     vproc_unit_wrapper__parameterized1 |        105 |        105 |       0 |    0 |   110 |      0 |      0 |          0 |
+|               (genblk1[4].unit)                     |     vproc_unit_wrapper__parameterized1 |          3 |          3 |       0 |    0 |    23 |      0 |      0 |          0 |
+|               elem                                  |                             vproc_elem |        102 |        102 |       0 |    0 |    87 |      0 |      0 |          0 |
+|             unit_queue                              |         vproc_queue__parameterized2_15 |        177 |        177 |       0 |    0 |    17 |      0 |      0 |          0 |
+|           unpack                                    |                       vproc_vregunpack |       2810 |       2753 |       0 |   57 |  3384 |      0 |      0 |          0 |
+|       genblk9[1].pipe                               | vproc_pipeline_wrapper__parameterized0 |       3704 |       3652 |       0 |   52 |  5112 |      0 |      0 |         16 |
+|         pipeline                                    |         vproc_pipeline__parameterized0 |       3704 |       3652 |       0 |   52 |  5112 |      0 |      0 |         16 |
+|           (pipeline)                                |         vproc_pipeline__parameterized0 |        240 |        240 |       0 |    0 |   152 |      0 |      0 |          0 |
+|           pack                                      |         vproc_vregpack__parameterized0 |         28 |         28 |       0 |    0 |   587 |      0 |      0 |          0 |
+|           unit_mux                                  |         vproc_unit_mux__parameterized0 |       1576 |       1576 |       0 |    0 |  1258 |      0 |      0 |         16 |
+|             genblk1[2].unit                         |     vproc_unit_wrapper__parameterized2 |       1090 |       1090 |       0 |    0 |   774 |      0 |      0 |         16 |
+|               mul                                   |                              vproc_mul |       1090 |       1090 |       0 |    0 |   774 |      0 |      0 |         16 |
+|                 (mul)                               |                              vproc_mul |        134 |        134 |       0 |    0 |   774 |      0 |      0 |          0 |
+|                 genblk5[0].mul_block                |                        vproc_mul_block |         48 |         48 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[10].mul_block               |                      vproc_mul_block_0 |         79 |         79 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[11].mul_block               |                      vproc_mul_block_1 |         40 |         40 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[12].mul_block               |                      vproc_mul_block_2 |         64 |         64 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[13].mul_block               |                      vproc_mul_block_3 |         68 |         68 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[14].mul_block               |                      vproc_mul_block_4 |         72 |         72 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[15].mul_block               |                      vproc_mul_block_5 |         48 |         48 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[1].mul_block                |                      vproc_mul_block_6 |         82 |         82 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[2].mul_block                |                      vproc_mul_block_7 |         72 |         72 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[3].mul_block                |                      vproc_mul_block_8 |         48 |         48 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[4].mul_block                |                      vproc_mul_block_9 |         57 |         57 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[5].mul_block                |                     vproc_mul_block_10 |         73 |         73 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[6].mul_block                |                     vproc_mul_block_11 |         74 |         74 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[7].mul_block                |                     vproc_mul_block_12 |         45 |         45 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[8].mul_block                |                     vproc_mul_block_13 |         53 |         53 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[9].mul_block                |                     vproc_mul_block_14 |         78 |         78 |       0 |    0 |     0 |      0 |      0 |          1 |
+|             genblk1[3].unit                         |     vproc_unit_wrapper__parameterized3 |        459 |        459 |       0 |    0 |   467 |      0 |      0 |          0 |
+|               sld                                   |                              vproc_sld |        459 |        459 |       0 |    0 |   467 |      0 |      0 |          0 |
+|             unit_queue                              |            vproc_queue__parameterized2 |         28 |         28 |       0 |    0 |    17 |      0 |      0 |          0 |
+|           unpack                                    |       vproc_vregunpack__parameterized0 |       1863 |       1811 |       0 |   52 |  3115 |      0 |      0 |          0 |
+|       instr_queue                                   |                            vproc_queue |         72 |         72 |       0 |    0 |   245 |      0 |      0 |          0 |
+|       queue_pending_wr                              |                       vproc_pending_wr |         77 |         77 |       0 |    0 |     0 |      0 |      0 |          0 |
+|       result_if                                     |                           vproc_result |         67 |         67 |       0 |    0 |    13 |      0 |      0 |          0 |
+|       vreg_wr_mux                                   |                      vproc_vreg_wr_mux |         51 |         51 |       0 |    0 |     0 |      0 |      0 |          0 |
+|       vregfile                                      |                         vproc_vregfile |       1024 |          0 |    1024 |    0 |     0 |      0 |      0 |          0 |
++-----------------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

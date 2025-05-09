@@ -1,0 +1,197 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Thu May  8 21:26:30 2025
+| Host         : return running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_utilization -hierarchical -file utilization_report.rpt
+| Design       : demo_top
+| Device       : xc7k325tffg900-2
+| Speed File   : -2
+| Design State : Routed
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
+|                                                         Instance        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| demo_top                                                                |      24284 |      23917 |     256 |  111 | 10119 |     66 |      0 |         13 |
+|   (demo_top)                                                            |         34 |         34 |       0 |    0 |     1 |      0 |      0 |          0 |
+|   hwregs                                                                |         65 |         60 |       0 |    5 |    77 |      0 |      0 |          0 |
+|     (hwregs)                                                            |         33 |         33 |       0 |    0 |    10 |      0 |      0 |          0 |
+|     uart                                                                |         32 |         27 |       0 |    5 |    67 |      0 |      0 |          0 |
+|       (uart)                                                            |          9 |          4 |       0 |    5 |    19 |      0 |      0 |          0 |
+|       rx_inst                                                           |         13 |         13 |       0 |    0 |    32 |      0 |      0 |          0 |
+|       tx_inst                                                           |         10 |         10 |       0 |    0 |    16 |      0 |      0 |          0 |
+|   u_iram                                                                |          0 |          0 |       0 |    0 |     0 |      2 |      0 |          0 |
+|   u_ram                                                                 |         20 |         20 |       0 |    0 |     1 |     64 |      0 |          0 |
+|   vproc                                                                 |      24167 |      23805 |     256 |  106 | 10040 |      0 |      0 |         13 |
+|     (vproc)                                                             |          2 |          1 |       0 |    1 |    24 |      0 |      0 |          0 |
+|     core                                                                |       4581 |       4581 |       0 |    0 |  2327 |      0 |      0 |          3 |
+|       controller_i                                                      |        254 |        254 |       0 |    0 |    16 |      0 |      0 |          0 |
+|         bypass_i                                                        |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         controller_fsm_i                                                |        253 |        253 |       0 |    0 |    16 |      0 |      0 |          0 |
+|       cs_registers_i                                                    |         41 |         41 |       0 |    0 |   476 |      0 |      0 |          0 |
+|         (cs_registers_i)                                                |         12 |         12 |       0 |    0 |   220 |      0 |      0 |          0 |
+|         basic_mode_csrs.mie_csr_i                                       |          2 |          2 |       0 |    0 |    19 |      0 |      0 |          0 |
+|         basic_mode_csrs.mtvec_csr_i                                     |          4 |          4 |       0 |    0 |    26 |      0 |      0 |          0 |
+|         dcsr_csr_i                                                      |          1 |          1 |       0 |    0 |     6 |      0 |      0 |          0 |
+|         dpc_csr_i                                                       |          0 |          0 |       0 |    0 |    31 |      0 |      0 |          0 |
+|         dscratch0_csr_i                                                 |          0 |          0 |       0 |    0 |    32 |      0 |      0 |          0 |
+|         dscratch1_csr_i                                                 |         12 |         12 |       0 |    0 |    32 |      0 |      0 |          0 |
+|         mcause_csr_i                                                    |          1 |          1 |       0 |    0 |    12 |      0 |      0 |          0 |
+|         mepc_csr_i                                                      |          4 |          4 |       0 |    0 |    31 |      0 |      0 |          0 |
+|         mscratch_csr_i                                                  |          0 |          0 |       0 |    0 |    32 |      0 |      0 |          0 |
+|         mstatus_csr_i                                                   |          0 |          0 |       0 |    0 |     2 |      0 |      0 |          0 |
+|         tdata1_csr_i                                                    |          1 |          1 |       0 |    0 |     1 |      0 |      0 |          0 |
+|         tdata2_csr_i                                                    |          4 |          4 |       0 |    0 |    32 |      0 |      0 |          0 |
+|       ex_stage_i                                                        |        734 |        734 |       0 |    0 |   280 |      0 |      0 |          3 |
+|         (ex_stage_i)                                                    |        440 |        440 |       0 |    0 |   137 |      0 |      0 |          0 |
+|         div.div_i                                                       |        207 |        207 |       0 |    0 |   108 |      0 |      0 |          0 |
+|         mul.mult_i                                                      |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          3 |
+|       id_stage_i                                                        |       1273 |       1273 |       0 |    0 |   244 |      0 |      0 |          0 |
+|         (id_stage_i)                                                    |       1251 |       1251 |       0 |    0 |   244 |      0 |      0 |          0 |
+|         cv32e40x_pc_target_i                                            |         22 |         22 |       0 |    0 |     0 |      0 |      0 |          0 |
+|       if_stage_i                                                        |       1605 |       1605 |       0 |    0 |   262 |      0 |      0 |          0 |
+|         (if_stage_i)                                                    |       1237 |       1237 |       0 |    0 |    86 |      0 |      0 |          0 |
+|         mpu_i                                                           |          4 |          4 |       0 |    0 |     2 |      0 |      0 |          0 |
+|         prefetch_unit_i                                                 |        365 |        365 |       0 |    0 |   174 |      0 |      0 |          0 |
+|           alignment_buffer_i                                            |        353 |        353 |       0 |    0 |   153 |      0 |      0 |          0 |
+|           prefetcher_i                                                  |         12 |         12 |       0 |    0 |    21 |      0 |      0 |          0 |
+|       load_store_unit_i                                                 |         83 |         83 |       0 |    0 |    54 |      0 |      0 |          0 |
+|         (load_store_unit_i)                                             |         52 |         52 |       0 |    0 |    47 |      0 |      0 |          0 |
+|         mpu_i                                                           |         24 |         24 |       0 |    0 |     3 |      0 |      0 |          0 |
+|         response_filter_i                                               |          8 |          8 |       0 |    0 |     4 |      0 |      0 |          0 |
+|       register_file_wrapper_i                                           |        606 |        606 |       0 |    0 |   992 |      0 |      0 |          0 |
+|         register_file_i                                                 |        606 |        606 |       0 |    0 |   992 |      0 |      0 |          0 |
+|       sleep_unit_i                                                      |          3 |          3 |       0 |    0 |     3 |      0 |      0 |          0 |
+|         (sleep_unit_i)                                                  |          2 |          2 |       0 |    0 |     2 |      0 |      0 |          0 |
+|         core_clock_gate_i                                               |          1 |          1 |       0 |    0 |     1 |      0 |      0 |          0 |
+|     fpu_ss_i                                                            |       6562 |       6562 |       0 |    0 |  2034 |      0 |      0 |          2 |
+|       (fpu_ss_i)                                                        |          2 |          2 |       0 |    0 |     0 |      0 |      0 |          0 |
+|       fpu_ss_controller_i                                               |         55 |         55 |       0 |    0 |    49 |      0 |      0 |          0 |
+|       fpu_ss_csr_i                                                      |         29 |         29 |       0 |    0 |    33 |      0 |      0 |          0 |
+|       gen_fp_register_file.fpu_ss_regfile_i                             |       1134 |       1134 |       0 |    0 |  1024 |      0 |      0 |          0 |
+|       gen_input_stream_fifo.input_stream_fifo_i                         |          5 |          5 |       0 |    0 |    69 |      0 |      0 |          0 |
+|         fifo_i                                                          |          5 |          5 |       0 |    0 |    69 |      0 |      0 |          0 |
+|       i_fpnew_bulk                                                      |       5297 |       5297 |       0 |    0 |   831 |      0 |      0 |          2 |
+|         (i_fpnew_bulk)                                                  |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         gen_operation_groups[0].i_opgroup_block                         |       1288 |       1288 |       0 |    0 |   118 |      0 |      0 |          2 |
+|           gen_merged_slice.i_multifmt_slice                             |       1287 |       1287 |       0 |    0 |   118 |      0 |      0 |          2 |
+|             (gen_merged_slice.i_multifmt_slice)                         |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|             gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi|       1286 |       1286 |       0 |    0 |   118 |      0 |      0 |          2 |
+|           i_arbiter                                                     |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         gen_operation_groups[1].i_opgroup_block                         |       3071 |       3071 |       0 |    0 |   572 |      0 |      0 |          0 |
+|           gen_merged_slice.i_multifmt_slice                             |       3071 |       3071 |       0 |    0 |   572 |      0 |      0 |          0 |
+|             gen_num_lanes[0].active_lane.lane_instance.gen_thmulti_c910_|       3071 |       3071 |       0 |    0 |   572 |      0 |      0 |          0 |
+|               (gen_num_lanes[0].active_lane.lane_instance.gen_thmulti_c9|          2 |          2 |       0 |    0 |   170 |      0 |      0 |          0 |
+|               i_ct_vfdsu_top                                            |       3069 |       3069 |       0 |    0 |   402 |      0 |      0 |          0 |
+|                 x_ct_vfdsu_ctrl                                         |         28 |         28 |       0 |    0 |    17 |      0 |      0 |          0 |
+|                 x_ct_vfdsu_double                                       |       3032 |       3032 |       0 |    0 |   377 |      0 |      0 |          0 |
+|                   (x_ct_vfdsu_double)                                   |         12 |         12 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                   x_ct_vfdsu_pack                                       |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                   x_ct_vfdsu_prepare                                    |        631 |        631 |       0 |    0 |    34 |      0 |      0 |          0 |
+|                   x_ct_vfdsu_round                                      |        301 |        301 |       0 |    0 |    64 |      0 |      0 |          0 |
+|                   x_ct_vfdsu_srt                                        |       2094 |       2094 |       0 |    0 |   279 |      0 |      0 |          0 |
+|                     (x_ct_vfdsu_srt)                                    |        134 |        134 |       0 |    0 |    51 |      0 |      0 |          0 |
+|                     x_ct_vfdsu_srt_radix16_with_sqrt                    |       1962 |       1962 |       0 |    0 |   228 |      0 |      0 |          0 |
+|                       (x_ct_vfdsu_srt_radix16_with_sqrt)                |       1885 |       1885 |       0 |    0 |   228 |      0 |      0 |          0 |
+|                       x_ct_vfdsu_srt_radix16_bound_table                |         77 |         77 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                 x_ct_vfdsu_scalar_dp                                    |         10 |         10 |       0 |    0 |     8 |      0 |      0 |          0 |
+|           i_arbiter                                                     |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         gen_operation_groups[2].i_opgroup_block                         |        146 |        146 |       0 |    0 |    84 |      0 |      0 |          0 |
+|           gen_parallel_slices[0].active_format.i_fmt_slice              |        146 |        146 |       0 |    0 |    84 |      0 |      0 |          0 |
+|             gen_num_lanes[0].active_lane.lane_instance.i_noncomp        |        146 |        146 |       0 |    0 |    84 |      0 |      0 |          0 |
+|         gen_operation_groups[3].i_opgroup_block                         |        724 |        724 |       0 |    0 |    55 |      0 |      0 |          0 |
+|           gen_merged_slice.i_multifmt_slice                             |        724 |        724 |       0 |    0 |    55 |      0 |      0 |          0 |
+|             gen_num_lanes[0].active_lane.lane_instance.i_fpnew_cast_mult|        724 |        724 |       0 |    0 |    55 |      0 |      0 |          0 |
+|         i_arbiter                                                       |         67 |         67 |       0 |    0 |     2 |      0 |      0 |          0 |
+|       mem_stream_fifo_i                                                 |         41 |         41 |       0 |    0 |    28 |      0 |      0 |          0 |
+|         fifo_i                                                          |         41 |         41 |       0 |    0 |    28 |      0 |      0 |          0 |
+|     v_core                                                              |      13027 |      12666 |     256 |  105 |  5655 |      0 |      0 |          8 |
+|       (v_core)                                                          |        184 |        184 |       0 |    0 |   484 |      0 |      0 |          0 |
+|       dec                                                               |          0 |          0 |       0 |    0 |     3 |      0 |      0 |          0 |
+|       dispatcher                                                        |         19 |         19 |       0 |    0 |    32 |      0 |      0 |          0 |
+|       genblk9[0].pipe                                                   |       3038 |       2985 |       0 |   53 |  1791 |      0 |      0 |          2 |
+|         pipeline                                                        |       3038 |       2985 |       0 |   53 |  1791 |      0 |      0 |          2 |
+|           (pipeline)                                                    |        695 |        695 |       0 |    0 |   227 |      0 |      0 |          0 |
+|           pack                                                          |         87 |         87 |       0 |    0 |   159 |      0 |      0 |          0 |
+|           unit_mux                                                      |        635 |        635 |       0 |    0 |   419 |      0 |      0 |          2 |
+|             genblk1[0].unit                                             |        464 |        464 |       0 |    0 |   291 |      0 |      0 |          2 |
+|               lsu                                                       |        464 |        464 |       0 |    0 |   291 |      0 |      0 |          2 |
+|                 (lsu)                                                   |        163 |        163 |       0 |    0 |   157 |      0 |      0 |          2 |
+|                 lsu_queue                                               |        273 |        273 |       0 |    0 |   121 |      0 |      0 |          0 |
+|                 trans_complete_queue                                    |         28 |         28 |       0 |    0 |    13 |      0 |      0 |          0 |
+|             genblk1[6].unit                                             |        147 |        147 |       0 |    0 |   111 |      0 |      0 |          0 |
+|               (genblk1[6].unit)                                         |          2 |          2 |       0 |    0 |    22 |      0 |      0 |          0 |
+|               elem                                                      |        145 |        145 |       0 |    0 |    89 |      0 |      0 |          0 |
+|             unit_queue                                                  |         24 |         24 |       0 |    0 |    17 |      0 |      0 |          0 |
+|           unpack                                                        |       1626 |       1573 |       0 |   53 |   986 |      0 |      0 |          0 |
+|       genblk9[1].pipe                                                   |       8940 |       8888 |       0 |   52 |  3051 |      0 |      0 |          6 |
+|         pipeline                                                        |       8940 |       8888 |       0 |   52 |  3051 |      0 |      0 |          6 |
+|           (pipeline)                                                    |        317 |        317 |       0 |    0 |   169 |      0 |      0 |          0 |
+|           pack                                                          |        274 |        274 |       0 |    0 |   188 |      0 |      0 |          0 |
+|           unit_mux                                                      |       7437 |       7437 |       0 |    0 |  1784 |      0 |      0 |          6 |
+|             genblk1[1].unit                                             |        787 |        787 |       0 |    0 |   360 |      0 |      0 |          0 |
+|               (genblk1[1].unit)                                         |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|               alu                                                       |        786 |        786 |       0 |    0 |   360 |      0 |      0 |          0 |
+|             genblk1[2].unit                                             |        288 |        288 |       0 |    0 |   254 |      0 |      0 |          4 |
+|               mul                                                       |        288 |        288 |       0 |    0 |   254 |      0 |      0 |          4 |
+|                 (mul)                                                   |        116 |        116 |       0 |    0 |   254 |      0 |      0 |          0 |
+|                 genblk5[0].mul_block                                    |         42 |         42 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[1].mul_block                                    |         41 |         41 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[2].mul_block                                    |         74 |         74 |       0 |    0 |     0 |      0 |      0 |          1 |
+|                 genblk5[3].mul_block                                    |         19 |         19 |       0 |    0 |     0 |      0 |      0 |          1 |
+|             genblk1[3].unit                                             |        527 |        527 |       0 |    0 |   306 |      0 |      0 |          0 |
+|               div                                                       |        527 |        527 |       0 |    0 |   306 |      0 |      0 |          0 |
+|                 (div)                                                   |         48 |         48 |       0 |    0 |   197 |      0 |      0 |          0 |
+|                 genblk1[0].div_i                                        |        479 |        479 |       0 |    0 |   109 |      0 |      0 |          0 |
+|             genblk1[4].unit                                             |       5441 |       5441 |       0 |    0 |   702 |      0 |      0 |          2 |
+|               (genblk1[4].unit)                                         |          0 |          0 |       0 |    0 |    23 |      0 |      0 |          0 |
+|               fpu                                                       |       5441 |       5441 |       0 |    0 |   679 |      0 |      0 |          2 |
+|                 (fpu)                                                   |        354 |        354 |       0 |    0 |   173 |      0 |      0 |          0 |
+|                 genblk1[0].fpnew_i                                      |       5093 |       5093 |       0 |    0 |   506 |      0 |      0 |          2 |
+|                   gen_operation_groups[0].i_opgroup_block               |       1061 |       1061 |       0 |    0 |     0 |      0 |      0 |          2 |
+|                     gen_parallel_slices[0].active_format.i_fmt_slice    |       1061 |       1061 |       0 |    0 |     0 |      0 |      0 |          2 |
+|                       gen_num_lanes[0].active_lane.lane_instance.i_fma  |       1061 |       1061 |       0 |    0 |     0 |      0 |      0 |          2 |
+|                   gen_operation_groups[1].i_opgroup_block               |       3135 |       3135 |       0 |    0 |   504 |      0 |      0 |          0 |
+|                     gen_merged_slice.i_multifmt_slice                   |       3129 |       3129 |       0 |    0 |   504 |      0 |      0 |          0 |
+|                       gen_num_lanes[0].active_lane.lane_instance.gen_thm|       3129 |       3129 |       0 |    0 |   504 |      0 |      0 |          0 |
+|                         (gen_num_lanes[0].active_lane.lane_instance.gen_|          3 |          3 |       0 |    0 |   102 |      0 |      0 |          0 |
+|                         i_ct_vfdsu_top                                  |       3126 |       3126 |       0 |    0 |   402 |      0 |      0 |          0 |
+|                           x_ct_vfdsu_ctrl                               |         56 |         56 |       0 |    0 |    17 |      0 |      0 |          0 |
+|                           x_ct_vfdsu_double                             |       3060 |       3060 |       0 |    0 |   377 |      0 |      0 |          0 |
+|                             (x_ct_vfdsu_double)                         |         12 |         12 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                             x_ct_vfdsu_pack                             |          1 |          1 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                             x_ct_vfdsu_prepare                          |        632 |        632 |       0 |    0 |    34 |      0 |      0 |          0 |
+|                             x_ct_vfdsu_round                            |        332 |        332 |       0 |    0 |    64 |      0 |      0 |          0 |
+|                             x_ct_vfdsu_srt                              |       2094 |       2094 |       0 |    0 |   279 |      0 |      0 |          0 |
+|                               (x_ct_vfdsu_srt)                          |        134 |        134 |       0 |    0 |    51 |      0 |      0 |          0 |
+|                               x_ct_vfdsu_srt_radix16_with_sqrt          |       1962 |       1962 |       0 |    0 |   228 |      0 |      0 |          0 |
+|                                 (x_ct_vfdsu_srt_radix16_with_sqrt)      |       1885 |       1885 |       0 |    0 |   228 |      0 |      0 |          0 |
+|                                 x_ct_vfdsu_srt_radix16_bound_table      |         77 |         77 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                           x_ct_vfdsu_scalar_dp                          |         10 |         10 |       0 |    0 |     8 |      0 |      0 |          0 |
+|                     i_arbiter                                           |          6 |          6 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                   gen_operation_groups[2].i_opgroup_block               |        135 |        135 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                     gen_parallel_slices[0].active_format.i_fmt_slice    |        135 |        135 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                       gen_num_lanes[0].active_lane.lane_instance.i_nonco|        135 |        135 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                   gen_operation_groups[3].i_opgroup_block               |        584 |        584 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                     gen_merged_slice.i_multifmt_slice                   |        584 |        584 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                       (gen_merged_slice.i_multifmt_slice)               |         15 |         15 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                       gen_num_lanes[0].active_lane.lane_instance.i_fpnew|        575 |        575 |       0 |    0 |     0 |      0 |      0 |          0 |
+|                   i_arbiter                                             |        179 |        179 |       0 |    0 |     2 |      0 |      0 |          0 |
+|             genblk1[5].unit                                             |         42 |         42 |       0 |    0 |   145 |      0 |      0 |          0 |
+|               sld                                                       |         42 |         42 |       0 |    0 |   145 |      0 |      0 |          0 |
+|             unit_queue                                                  |        355 |        355 |       0 |    0 |    17 |      0 |      0 |          0 |
+|           unpack                                                        |        914 |        862 |       0 |   52 |   910 |      0 |      0 |          0 |
+|       instr_queue                                                       |        420 |        420 |       0 |    0 |   246 |      0 |      0 |          0 |
+|       result_if                                                         |        172 |        172 |       0 |    0 |    48 |      0 |      0 |          0 |
+|       vregfile                                                          |        256 |          0 |     256 |    0 |     0 |      0 |      0 |          0 |
++-------------------------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
