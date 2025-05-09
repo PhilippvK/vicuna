@@ -1,0 +1,1 @@
+../rtl/demo_tb.sv
