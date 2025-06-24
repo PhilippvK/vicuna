@@ -7,7 +7,7 @@ import pandas as pd
 parser = argparse.ArgumentParser()
 parser.add_argument("report", help="TODO")
 parser.add_argument("--output", "-o", default=None, help="TODO")
-parser.add_argument("--agg-mode", default="default", choices=["none", "default", "detailed"], help="TODO")
+parser.add_argument("--agg-mode", default="default", choices=["none", "default", "detailed", "pipeline"], help="TODO")
 args = parser.parse_args()
 
 report_file = Path(args.report)
@@ -57,7 +57,7 @@ df = pd.DataFrame(data, columns=col_names)
 if "Module" not in df.columns:
     df["Module"] = None
 
-if args.agg_mode in ["default", "detailed"]:
+if args.agg_mode in ["default", "detailed", "pipeline"]:
     u_ram_instances = ["u_ram", "u_iram"]
     u_core_instances = ["core"]
     u_fpu_instances = ["fpu_ss_i"]
@@ -69,6 +69,34 @@ if args.agg_mode in ["default", "detailed"]:
     dfs = [u_ram_df, u_core_df, u_fpu_df]
     if args.agg_mode == "default":
         dfs.append(v_core_df)
+    elif args.agg_mode == "pipeline":
+        MAX_NUM_PIPELINES = 10
+        # v_core_pipeline_instances = [f"genblk9[{i}].pipe" for i in range(MAX_NUM_PIPELINES)]
+        dfs_ = []
+        for i in range(MAX_NUM_PIPELINES):
+            pipeline_name = f"pipeline{i}"
+            pipeline_instance = f"genblk9[{i}].pipe"
+            v_core_pipeline_df = df[df["Instance"] == pipeline_instance].set_index(["Instance", "Module"]).astype(float)
+            if len(v_core_pipeline_df) == 0:
+                break
+            v_core_pipeline_df = v_core_pipeline_df.sum(axis=0).rename(f"v_core_{pipeline_name}").to_frame().T
+            dfs_.append(v_core_pipeline_df)
+        print("dfs_", len(dfs_))
+        v_core_vregfile_instances = ["vregfile"]  # TODO: check
+        v_core_vregfile_df = df[df["Instance"].isin(v_core_vregfile_instances)].set_index(["Instance", "Module"]).astype(float).sum(axis=0).rename("v_core_vregfile").to_frame().T
+        # v_core_temp_df = pd.concat([*dfs_, v_core_vregfile_df]).sum(axis=0).rename("v_core").to_frame().T
+        print("v_core_df", v_core_df)
+        print("v_core_vregfile_df", v_core_vregfile_df)
+        if len(dfs_) > 0:
+            v_core_pipeline_temp_df = pd.concat(dfs_).sum(axis=0).rename("v_core").to_frame().T
+            print("v_core_pipeline_temp_df", v_core_pipeline_temp_df)
+            v_core_misc_df = v_core_df - v_core_pipeline_temp_df.values - v_core_vregfile_df.values
+        else:
+            v_core_misc_df = v_core_df - v_core_vregfile_df.values
+        v_core_misc_df.rename(index={"v_core": "v_core_misc"}, inplace=True)
+        print("v_core_misc_df", v_core_misc_df)
+        # input("?")
+        dfs += [*dfs_, v_core_vregfile_df, v_core_misc_df]
     elif args.agg_mode == "detailed":
         v_core_pipeline_instances = ["pipeline"]  # TODO: check
         v_core_fpu_instances = ["fpu"]  # TODO: check
