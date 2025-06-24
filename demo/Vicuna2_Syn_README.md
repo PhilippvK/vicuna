@@ -10,8 +10,10 @@ Make sure to use patched versions/forks of Vicuna2 repositories:
 
 ### Relevant Changes
 
-- `Makefile2`: Vincuna2 variant of `Makefile`
-- `Makefile2`: Vincuna2 variant of `Makefile`
+- `Makefile2`: Vicuna2 variant of `Makefile`
+- `gen_demo_vicuna2.tcl`: Vicuna2 variant of `gen_demo.tcl`
+- `rtl_vicuna2`: Vicuna2 variant of `rtl`
+- Added scripts for combining reports and plotting
 
 ### Commands
 
