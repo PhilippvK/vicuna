@@ -1,0 +1,325 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Wed May 14 11:29:04 2025
+| Host         : return running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file timing_report.rpt
+| Design       : demo_top
+| Device       : 7k325t-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.263ns  (required time - arrival time)
+  Source:                 vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_input_pipeline[0].inp_pipe_operands_q_reg[1][0][3]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@27.812ns period=55.625ns})
+  Destination:            u_ram/mem_reg_2_0_3/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@27.812ns period=55.625ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            55.625ns  (clk_raw rise@55.625ns - clk_raw rise@0.000ns)
+  Data Path Delay:        55.125ns  (logic 8.153ns (14.790%)  route 46.972ns (85.210%))
+  Logic Levels:           109  (CARRY4=32 LUT2=7 LUT3=6 LUT4=7 LUT5=18 LUT6=38 MUXF7=1)
+  Clock Path Skew:        0.164ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.364ns = ( 60.989 - 55.625 ) 
+    Source Clock Delay      (SCD):    5.555ns
+    Clock Pessimism Removal (CPR):    0.354ns
+  Clock Uncertainty:      0.073ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.127ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+    AD12                                              0.000     0.000 r  sys_clk_pi (IN)
+                         net (fo=0)                   0.000     0.000    sys_clk_pi
+    AD12                 IBUF (Prop_ibuf_I_O)         0.906     0.906 r  sys_clk_pi_IBUF_inst/O
+                         net (fo=1, routed)           1.137     2.043    sys_clk_pi_IBUF
+    PLLE2_ADV_X1Y2       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                      0.077     2.120 r  pll_inst/CLKOUT0
+                         net (fo=1, routed)           1.789     3.909    clk_raw
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     4.002 r  clkbuf/O
+                         net (fo=28618, routed)       1.553     5.555    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/clk
+    SLICE_X57Y70         FDCE                                         r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_input_pipeline[0].inp_pipe_operands_q_reg[1][0][3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y70         FDCE (Prop_fdce_C_Q)         0.223     5.778 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_input_pipeline[0].inp_pipe_operands_q_reg[1][0][3]/Q
+                         net (fo=2, routed)           0.355     6.132    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_input_pipeline[0].inp_pipe_operands_q_reg_n_0_[1][0][3]
+    SLICE_X57Y70         LUT4 (Prop_lut4_I0_O)        0.043     6.175 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_576/O
+                         net (fo=1, routed)           0.463     6.638    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_576_n_0
+    SLICE_X58Y69         LUT6 (Prop_lut6_I1_O)        0.043     6.681 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_282/O
+                         net (fo=1, routed)           0.437     7.118    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_282_n_0
+    SLICE_X59Y69         LUT6 (Prop_lut6_I5_O)        0.043     7.161 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_123/O
+                         net (fo=2, routed)           0.519     7.680    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_123_n_0
+    SLICE_X63Y81         LUT5 (Prop_lut5_I2_O)        0.043     7.723 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1002/O
+                         net (fo=2, routed)           0.367     8.089    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1002_n_0
+    SLICE_X62Y81         LUT6 (Prop_lut6_I5_O)        0.043     8.132 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_720/O
+                         net (fo=2, routed)           0.462     8.594    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_720_n_0
+    SLICE_X62Y78         LUT4 (Prop_lut4_I0_O)        0.043     8.637 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_724/O
+                         net (fo=1, routed)           0.000     8.637    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_724_n_0
+    SLICE_X62Y78         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.246     8.883 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_352/CO[3]
+                         net (fo=1, routed)           0.000     8.883    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_352_n_0
+    SLICE_X62Y79         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.108     8.991 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_353/O[0]
+                         net (fo=2, routed)           0.630     9.622    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_353_n_7
+    SLICE_X74Y76         LUT3 (Prop_lut3_I2_O)        0.131     9.753 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_298/O
+                         net (fo=10, routed)          0.363    10.116    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_298_n_0
+    SLICE_X70Y76         LUT2 (Prop_lut2_I1_O)        0.134    10.250 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_953/O
+                         net (fo=1, routed)           0.000    10.250    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_953_n_0
+    SLICE_X70Y76         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.217    10.467 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_596/O[1]
+                         net (fo=6, routed)           0.565    11.031    vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/O[1]
+    SLICE_X67Y73         LUT4 (Prop_lut4_I0_O)        0.125    11.156 r  vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/i__i_745/O
+                         net (fo=3, routed)           0.467    11.623    vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/i__i_745_n_0
+    SLICE_X66Y74         LUT6 (Prop_lut6_I5_O)        0.043    11.666 r  vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/i__i_594/O
+                         net (fo=7, routed)           0.436    12.102    vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/i__i_745_0
+    SLICE_X67Y74         LUT3 (Prop_lut3_I1_O)        0.043    12.145 r  vproc/fpu_ss_i/gen_fp_register_file.fpu_ss_regfile_i/i__i_589/O
+                         net (fo=50, routed)          0.678    12.823    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1404_0
+    SLICE_X64Y72         LUT3 (Prop_lut3_I1_O)        0.054    12.877 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_941/O
+                         net (fo=3, routed)           0.507    13.384    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_941_n_0
+    SLICE_X71Y72         LUT2 (Prop_lut2_I0_O)        0.149    13.533 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_586/O
+                         net (fo=9, routed)           0.449    13.982    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_586_n_0
+    SLICE_X70Y69         LUT3 (Prop_lut3_I0_O)        0.141    14.123 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1413/O
+                         net (fo=9, routed)           0.300    14.423    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1413_n_0
+    SLICE_X70Y72         LUT6 (Prop_lut6_I4_O)        0.134    14.557 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1144/O
+                         net (fo=1, routed)           0.277    14.834    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1144_n_0
+    SLICE_X70Y71         LUT5 (Prop_lut5_I4_O)        0.043    14.877 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_889/O
+                         net (fo=1, routed)           0.273    15.150    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_889_n_0
+    SLICE_X70Y70         LUT6 (Prop_lut6_I4_O)        0.043    15.193 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_511/O
+                         net (fo=1, routed)           0.106    15.298    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_511_n_0
+    SLICE_X70Y70         LUT6 (Prop_lut6_I1_O)        0.043    15.341 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_241/O
+                         net (fo=2, routed)           0.329    15.670    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_241_n_0
+    SLICE_X71Y63         LUT2 (Prop_lut2_I1_O)        0.043    15.713 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_771/O
+                         net (fo=2, routed)           0.368    16.081    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/inject_carry_in
+    SLICE_X68Y61         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.269    16.350 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_374/CO[3]
+                         net (fo=1, routed)           0.000    16.350    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_374_n_0
+    SLICE_X68Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.403 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_841/CO[3]
+                         net (fo=1, routed)           0.000    16.403    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_841_n_0
+    SLICE_X68Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.456 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_843/CO[3]
+                         net (fo=1, routed)           0.000    16.456    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_843_n_0
+    SLICE_X68Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.509 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_845/CO[3]
+                         net (fo=1, routed)           0.000    16.509    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_845_n_0
+    SLICE_X68Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.562 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_985/CO[3]
+                         net (fo=1, routed)           0.000    16.562    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_985_n_0
+    SLICE_X68Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.615 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1028/CO[3]
+                         net (fo=1, routed)           0.000    16.615    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1028_n_0
+    SLICE_X68Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.668 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_762/CO[3]
+                         net (fo=1, routed)           0.000    16.668    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_762_n_0
+    SLICE_X68Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.721 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1027/CO[3]
+                         net (fo=1, routed)           0.000    16.721    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1027_n_0
+    SLICE_X68Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.774 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_980/CO[3]
+                         net (fo=1, routed)           0.000    16.774    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_980_n_0
+    SLICE_X68Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.827 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_978/CO[3]
+                         net (fo=1, routed)           0.000    16.827    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_978_n_0
+    SLICE_X68Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.880 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_757/CO[3]
+                         net (fo=1, routed)           0.000    16.880    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_757_n_0
+    SLICE_X68Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.933 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_991/CO[3]
+                         net (fo=1, routed)           0.000    16.933    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_991_n_0
+    SLICE_X68Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    16.986 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1013/CO[3]
+                         net (fo=1, routed)           0.000    16.986    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1013_n_0
+    SLICE_X68Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.039 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1078/CO[3]
+                         net (fo=1, routed)           0.007    17.046    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1078_n_0
+    SLICE_X68Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.099 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_931/CO[3]
+                         net (fo=1, routed)           0.000    17.099    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_931_n_0
+    SLICE_X68Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.152 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_578/CO[3]
+                         net (fo=1, routed)           0.000    17.152    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_578_n_0
+    SLICE_X68Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.205 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_283/CO[3]
+                         net (fo=1, routed)           0.000    17.205    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_283_n_0
+    SLICE_X68Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.258 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_124/CO[3]
+                         net (fo=1, routed)           0.000    17.258    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_124_n_0
+    SLICE_X68Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    17.311 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_58/CO[3]
+                         net (fo=1, routed)           0.000    17.311    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_58_n_0
+    SLICE_X68Y80         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.139    17.450 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_26/CO[0]
+                         net (fo=2, routed)           0.284    17.734    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/sum_carry
+    SLICE_X70Y79         LUT2 (Prop_lut2_I0_O)        0.131    17.865 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_375/O
+                         net (fo=113, routed)         0.850    18.715    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_375_n_0
+    SLICE_X70Y65         LUT5 (Prop_lut5_I3_O)        0.043    18.758 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_765/O
+                         net (fo=2, routed)           0.526    19.284    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_765_n_0
+    SLICE_X72Y67         LUT6 (Prop_lut6_I0_O)        0.043    19.327 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_369/O
+                         net (fo=5, routed)           0.475    19.802    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/p_28_in
+    SLICE_X73Y67         LUT5 (Prop_lut5_I0_O)        0.043    19.845 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_347/O
+                         net (fo=7, routed)           0.461    20.305    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/gen_lzc.sel_nodes_5
+    SLICE_X73Y70         LUT5 (Prop_lut5_I1_O)        0.043    20.348 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_783/O
+                         net (fo=2, routed)           0.000    20.348    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/gen_lzc.index_nodes[2]_40[0]
+    SLICE_X73Y70         MUXF7 (Prop_muxf7_I0_O)      0.107    20.455 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_377/O
+                         net (fo=5, routed)           0.513    20.969    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/leading_zero_count[0]
+    SLICE_X72Y75         LUT2 (Prop_lut2_I1_O)        0.124    21.093 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_687/O
+                         net (fo=1, routed)           0.000    21.093    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_687_n_0
+    SLICE_X72Y75         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.259    21.352 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_338/CO[3]
+                         net (fo=1, routed)           0.000    21.352    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_338_n_0
+    SLICE_X72Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    21.405 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_712/CO[3]
+                         net (fo=1, routed)           0.000    21.405    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_712_n_0
+    SLICE_X72Y77         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.077    21.482 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_351/CO[1]
+                         net (fo=1, routed)           0.505    21.987    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_351_n_2
+    SLICE_X72Y71         LUT4 (Prop_lut4_I0_O)        0.130    22.117 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_162/O
+                         net (fo=20, routed)          0.276    22.393    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_162_n_0
+    SLICE_X74Y71         LUT5 (Prop_lut5_I3_O)        0.136    22.529 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_847/O
+                         net (fo=75, routed)          0.572    23.100    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_847_n_0
+    SLICE_X86Y69         LUT5 (Prop_lut5_I3_O)        0.043    23.143 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_645/O
+                         net (fo=3, routed)           0.437    23.581    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_645_n_0
+    SLICE_X85Y69         LUT6 (Prop_lut6_I5_O)        0.043    23.624 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_310/O
+                         net (fo=2, routed)           0.360    23.983    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_310_n_0
+    SLICE_X84Y69         LUT6 (Prop_lut6_I0_O)        0.043    24.026 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_139/O
+                         net (fo=3, routed)           0.575    24.601    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_139_n_0
+    SLICE_X80Y73         LUT5 (Prop_lut5_I2_O)        0.043    24.644 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_118/O
+                         net (fo=13, routed)          0.457    25.101    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_118_n_0
+    SLICE_X78Y79         LUT4 (Prop_lut4_I0_O)        0.043    25.144 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1113/O
+                         net (fo=1, routed)           0.164    25.308    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_1113_n_0
+    SLICE_X78Y79         LUT5 (Prop_lut5_I2_O)        0.043    25.351 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_862/O
+                         net (fo=2, routed)           0.315    25.666    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_862_n_0
+    SLICE_X77Y80         LUT4 (Prop_lut4_I2_O)        0.043    25.709 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_447/O
+                         net (fo=1, routed)           0.000    25.709    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_447_n_0
+    SLICE_X77Y80         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.259    25.968 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_200/CO[3]
+                         net (fo=1, routed)           0.000    25.968    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_200_n_0
+    SLICE_X77Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    26.021 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_83/CO[3]
+                         net (fo=1, routed)           0.000    26.021    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_83_n_0
+    SLICE_X77Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    26.074 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_36/CO[3]
+                         net (fo=25, routed)          0.756    26.830    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/of_before_round
+    SLICE_X78Y74         LUT2 (Prop_lut2_I1_O)        0.051    26.881 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_64/O
+                         net (fo=16, routed)          0.422    27.303    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_64_n_0
+    SLICE_X78Y74         LUT6 (Prop_lut6_I3_O)        0.134    27.437 f  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_42/O
+                         net (fo=5, routed)           0.327    27.764    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i__i_42_n_0
+    SLICE_X75Y74         LUT5 (Prop_lut5_I2_O)        0.043    27.807 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem[1][0]_i_21/O
+                         net (fo=1, routed)           0.604    28.411    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem[1][0]_i_21_n_0
+    SLICE_X76Y74         LUT6 (Prop_lut6_I0_O)        0.043    28.454 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem[1][0]_i_13/O
+                         net (fo=1, routed)           0.000    28.454    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem[1][0]_i_13_n_0
+    SLICE_X76Y74         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.259    28.713 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem_reg[1][0]_i_6/CO[3]
+                         net (fo=1, routed)           0.007    28.720    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem_reg[1][0]_i_6_n_0
+    SLICE_X76Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053    28.773 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem_reg[1][7]_i_6/CO[3]
+                         net (fo=1, routed)           0.000    28.773    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/gen_rf[1].mem_reg[1][7]_i_6_n_0
+    SLICE_X76Y76         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.166    28.939 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/register_write_behavioral[31].mem_reg[31][11]_i_7/O[1]
+                         net (fo=1, routed)           0.512    29.451    vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/rounded_abs[9]
+    SLICE_X64Y82         LUT6 (Prop_lut6_I3_O)        0.123    29.574 r  vproc/fpu_ss_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/register_write_behavioral[31].mem[31][9]_i_7/O
+                         net (fo=1, routed)           0.611    30.186    vproc/fpu_ss_i/i_fpnew_bulk/i_arbiter/register_write_behavioral[0].mem_reg[0][30][9]
+    SLICE_X64Y86         LUT5 (Prop_lut5_I4_O)        0.043    30.229 r  vproc/fpu_ss_i/i_fpnew_bulk/i_arbiter/register_write_behavioral[31].mem[31][9]_i_4/O
+                         net (fo=2, routed)           0.835    31.064    vproc/fpu_ss_i/i_fpnew_bulk/i_arbiter/gen_input_pipeline[0].inp_pipe_valid_q_reg[1]_0[8]
+    SLICE_X75Y93         LUT3 (Prop_lut3_I0_O)        0.048    31.112 r  vproc/fpu_ss_i/i_fpnew_bulk/i_arbiter/gen_rf[1].mem[1][9]_i_2/O
+                         net (fo=1, routed)           1.836    32.947    vproc/core/ex_stage_i/gen_rf[31].mem_reg[31][9]
+    SLICE_X77Y93         LUT6 (Prop_lut6_I3_O)        0.132    33.079 r  vproc/core/ex_stage_i/gen_rf[1].mem[1][9]_i_1/O
+                         net (fo=33, routed)          1.332    34.411    vproc/core/id_stage_i/id_ex_pipe_o_reg[muldiv_operand_b][31]_2[6]
+    SLICE_X99Y90         LUT6 (Prop_lut6_I1_O)        0.043    34.454 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][9]_i_1/O
+                         net (fo=5, routed)           0.729    35.183    vproc/core/if_stage_i/id_ex_pipe_o_reg[alu_operand_b][9]
+    SLICE_X92Y109        LUT5 (Prop_lut5_I0_O)        0.043    35.226 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_14/O
+                         net (fo=1, routed)           0.250    35.475    vproc/core/if_stage_i/dec_data_q[mode][8]_i_14_n_0
+    SLICE_X92Y110        LUT6 (Prop_lut6_I5_O)        0.043    35.518 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_3/O
+                         net (fo=3, routed)           0.370    35.889    vproc/core/if_stage_i/dec_data_q[mode][8]_i_3_n_0
+    SLICE_X85Y110        LUT6 (Prop_lut6_I3_O)        0.043    35.932 r  vproc/core/if_stage_i/dec_data_q[vl][8]_i_6/O
+                         net (fo=12, routed)          0.403    36.335    vproc/v_core/dec_data_q_reg[vl][7]_0
+    SLICE_X74Y109        LUT6 (Prop_lut6_I3_O)        0.043    36.378 r  vproc/v_core/dec_data_q[emul][0]_i_2/O
+                         net (fo=1, routed)           0.845    37.223    vproc/v_core/dec_data_q[emul][0]_i_2_n_0
+    SLICE_X74Y109        LUT6 (Prop_lut6_I0_O)        0.043    37.266 f  vproc/v_core/dec_data_q[emul][0]_i_1/O
+                         net (fo=6, routed)           1.271    38.538    vproc/core/if_stage_i/dec_data_d[emul][0]
+    SLICE_X80Y112        LUT6 (Prop_lut6_I5_O)        0.043    38.581 r  vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_18/O
+                         net (fo=1, routed)           1.148    39.729    vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_18_n_0
+    SLICE_X80Y112        LUT4 (Prop_lut4_I1_O)        0.043    39.772 r  vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_8/O
+                         net (fo=1, routed)           1.268    41.040    vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_8_n_0
+    SLICE_X81Y112        LUT6 (Prop_lut6_I3_O)        0.043    41.083 r  vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_3/O
+                         net (fo=1, routed)           1.539    42.621    vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_3_n_0
+    SLICE_X82Y112        LUT2 (Prop_lut2_I0_O)        0.050    42.671 r  vproc/core/if_stage_i/id_ex_pipe_o[xif_meta][exception]_i_2/O
+                         net (fo=10, routed)          0.437    43.108    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_0
+    SLICE_X85Y109        LUT5 (Prop_lut5_I4_O)        0.134    43.242 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_9/O
+                         net (fo=5, routed)           0.659    43.901    vproc/core/if_stage_i/instr_state_q[12][0]_i_9_n_0
+    SLICE_X86Y115        LUT6 (Prop_lut6_I5_O)        0.043    43.944 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_3/O
+                         net (fo=25, routed)          0.998    44.942    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X90Y115        LUT6 (Prop_lut6_I5_O)        0.043    44.985 f  vproc/core/if_stage_i/result_source_q[0]_i_5/O
+                         net (fo=1, routed)           0.373    45.358    vproc/v_core/result_if/result_source_q_reg[0]_1
+    SLICE_X90Y115        LUT5 (Prop_lut5_I4_O)        0.043    45.401 f  vproc/v_core/result_if/result_source_q[0]_i_3/O
+                         net (fo=5, routed)           0.589    45.991    vproc/v_core/result_if/result_source_q[0]_i_3_n_0
+    SLICE_X90Y114        LUT5 (Prop_lut5_I0_O)        0.043    46.034 r  vproc/v_core/result_if/rd_pos_q[0]_i_3/O
+                         net (fo=3, routed)           0.451    46.484    vproc/v_core/result_if/rd_pos_q[0]_i_3_n_0
+    SLICE_X87Y115        LUT6 (Prop_lut6_I0_O)        0.043    46.527 r  vproc/v_core/result_if/result_source_hold_q_i_19/O
+                         net (fo=1, routed)           0.578    47.105    vproc/core/id_stage_i/id_ex_pipe_o[rf_we]_i_27_0
+    SLICE_X89Y113        LUT6 (Prop_lut6_I5_O)        0.043    47.148 r  vproc/core/id_stage_i/result_source_hold_q_i_9/O
+                         net (fo=3, routed)           0.528    47.676    vproc/v_core/result_if/next_id_q_reg[0]_2
+    SLICE_X91Y113        LUT6 (Prop_lut6_I3_O)        0.043    47.719 r  vproc/v_core/result_if/result_source_hold_q_i_5/O
+                         net (fo=5, routed)           0.685    48.404    vproc/core/ex_stage_i/genblk3[11].hpm_event_flop.hpm_events_reg[11]
+    SLICE_X88Y107        LUT6 (Prop_lut6_I1_O)        0.043    48.447 f  vproc/core/ex_stage_i/id_ex_pipe_o[rf_we]_i_22/O
+                         net (fo=1, routed)           0.549    48.996    vproc/core/if_stage_i/id_ex_pipe_o[rf_we]_i_6_1
+    SLICE_X87Y107        LUT6 (Prop_lut6_I2_O)        0.043    49.039 f  vproc/core/if_stage_i/id_ex_pipe_o[rf_we]_i_13/O
+                         net (fo=1, routed)           0.400    49.439    vproc/core/if_stage_i/controller_i/controller_fsm_i/ctrl_fsm_o0__1
+    SLICE_X85Y107        LUT6 (Prop_lut6_I3_O)        0.043    49.482 f  vproc/core/if_stage_i/id_ex_pipe_o[rf_we]_i_6/O
+                         net (fo=11, routed)          0.374    49.856    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/instr_q_reg[25]
+    SLICE_X81Y108        LUT5 (Prop_lut5_I4_O)        0.043    49.899 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_tag_q[1][addr][4]_i_2/O
+                         net (fo=143, routed)         0.836    50.735    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/status_cnt_q_reg[0]_0
+    SLICE_X70Y97         LUT3 (Prop_lut3_I2_O)        0.051    50.786 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/instr_q[28]_i_2/O
+                         net (fo=27, routed)          0.762    51.548    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/in_buf_pop_data[instr_data]__0[28]
+    SLICE_X70Y100        LUT6 (Prop_lut6_I1_O)        0.138    51.686 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_op_q[1][2]_i_8/O
+                         net (fo=14, routed)          0.714    52.400    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_op_q[1][2]_i_8_n_0
+    SLICE_X65Y97         LUT5 (Prop_lut5_I0_O)        0.043    52.443 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_op_mod_q[1]_i_5/O
+                         net (fo=5, routed)           0.400    52.843    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_op_mod_q[1]_i_5_n_0
+    SLICE_X65Y96         LUT5 (Prop_lut5_I3_O)        0.043    52.886 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/gen_input_pipeline[0].inp_pipe_operands_q[1][1][31]_i_10/O
+                         net (fo=132, routed)         1.209    54.095    vproc/fpu_ss_i/fpu_ss_controller_i/fpr_raddr[1]_36[2]
+    SLICE_X42Y104        LUT6 (Prop_lut6_I2_O)        0.043    54.138 f  vproc/fpu_ss_i/fpu_ss_controller_i/lsu_we_q_i_12/O
+                         net (fo=1, routed)           0.433    54.570    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/lsu_we_q_reg_5
+    SLICE_X45Y104        LUT6 (Prop_lut6_I2_O)        0.043    54.613 f  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/lsu_we_q_i_4/O
+                         net (fo=10, routed)          1.119    55.732    vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/lsu_we_q_i_4_n_0
+    SLICE_X57Y104        LUT6 (Prop_lut6_I4_O)        0.043    55.775 r  vproc/fpu_ss_i/gen_input_stream_fifo.input_stream_fifo_i/fifo_i/core_busy_d_i_10/O
+                         net (fo=271, routed)         1.312    57.087    vproc/core/load_store_unit_i/response_filter_i/outstanding_q_reg[1][store]_1
+    SLICE_X77Y105        LUT6 (Prop_lut6_I2_O)        0.043    57.130 r  vproc/core/load_store_unit_i/response_filter_i/genblk3[8].hpm_event_flop.hpm_events[8]_i_2/O
+                         net (fo=4, routed)           0.460    57.590    vproc/v_core/instr_queue/sdata_req
+    SLICE_X72Y110        LUT6 (Prop_lut6_I0_O)        0.043    57.633 r  vproc/v_core/instr_queue/mem_rvalid_i_2/O
+                         net (fo=1, routed)           0.329    57.962    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_reg_2
+    SLICE_X72Y105        LUT6 (Prop_lut6_I4_O)        0.043    58.005 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.374    58.379    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X68Y100        LUT6 (Prop_lut6_I3_O)        0.043    58.422 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.304    58.726    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X65Y101        LUT6 (Prop_lut6_I0_O)        0.043    58.769 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_1/O
+                         net (fo=22, routed)          1.911    60.680    u_ram/mem_reg_2_1_3_0
+    RAMB36_X0Y6          RAMB36E1                                     r  u_ram/mem_reg_2_0_3/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   55.625    55.625 r  
+    AD12                                              0.000    55.625 r  sys_clk_pi (IN)
+                         net (fo=0)                   0.000    55.625    sys_clk_pi
+    AD12                 IBUF (Prop_ibuf_I_O)         0.803    56.428 r  sys_clk_pi_IBUF_inst/O
+                         net (fo=1, routed)           1.033    57.461    sys_clk_pi_IBUF
+    PLLE2_ADV_X1Y2       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                      0.073    57.534 r  pll_inst/CLKOUT0
+                         net (fo=1, routed)           1.672    59.206    clk_raw
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    59.289 r  clkbuf/O
+                         net (fo=28618, routed)       1.700    60.989    u_ram/clk
+    RAMB36_X0Y6          RAMB36E1                                     r  u_ram/mem_reg_2_0_3/CLKARDCLK
+                         clock pessimism              0.354    61.343    
+                         clock uncertainty           -0.073    61.271    
+    RAMB36_X0Y6          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    60.943    u_ram/mem_reg_2_0_3
+  -------------------------------------------------------------------
+                         required time                         60.943    
+                         arrival time                         -60.680    
+  -------------------------------------------------------------------
+                         slack                                  0.263    
+
+
+
+

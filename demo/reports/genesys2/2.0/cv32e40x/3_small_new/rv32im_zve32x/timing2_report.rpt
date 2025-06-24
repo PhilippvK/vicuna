@@ -1,0 +1,861 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Tue May 13 22:42:52 2025
+| Host         : return running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -nworst 5 -path_type full -input_pins -file timing2_report.rpt
+| Design       : demo_top
+| Device       : 7k325t-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+----------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.124ns  (required time - arrival time)
+  Source:                 vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Destination:            u_ram/mem_reg_1_1_2/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            22.857ns  (clk_raw rise@22.857ns - clk_raw rise@0.000ns)
+  Data Path Delay:        20.167ns  (logic 6.401ns (31.740%)  route 13.766ns (68.260%))
+  Logic Levels:           40  (CARRY4=2 DSP48E1=2 LUT2=4 LUT4=4 LUT5=7 LUT6=21)
+  Clock Path Skew:        -2.171ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.833ns = ( 27.690 - 22.857 ) 
+    Source Clock Delay      (SCD):    7.341ns
+    Clock Pessimism Removal (CPR):    0.337ns
+  Clock Uncertainty:      0.068ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.116ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+                         clock source latency         2.120     2.120    
+                         propagated clock network latency
+                                                      5.221     7.341    
+    SLICE_X55Y201        FDCE                         0.000     7.341 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+    SLICE_X55Y201        FDCE (Prop_fdce_C_Q)         0.204     7.545 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/Q
+                         net (fo=103, routed)         0.572     8.117    vproc/core/id_stage_i/id_ex_pipe[mul_operator]
+    SLICE_X53Y200                                                     r  vproc/core/id_stage_i/int_result__0_i_14/I2
+    SLICE_X53Y200        LUT4 (Prop_lut4_I2_O)        0.126     8.243 r  vproc/core/id_stage_i/int_result__0_i_14/O
+                         net (fo=1, routed)           0.329     8.572    vproc/core/ex_stage_i/mul.mult_i/op_a[3]
+    DSP48_X2Y81                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/A[3]
+    DSP48_X2Y81          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      2.879    11.451 r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/PCOUT[47]
+                         net (fo=1, routed)           0.000    11.451    vproc/core/ex_stage_i/mul.mult_i/int_result__0_n_106
+    DSP48_X2Y82                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/PCIN[47]
+    DSP48_X2Y82          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077    12.528 r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/P[0]
+                         net (fo=2, routed)           0.490    13.018    vproc/core/ex_stage_i/mul.mult_i/int_result__1_n_105
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/I0
+    SLICE_X53Y202        LUT2 (Prop_lut2_I0_O)        0.043    13.061 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/O
+                         net (fo=1, routed)           0.000    13.061    vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3_n_0
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/S[1]
+    SLICE_X53Y202        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    13.343 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/O[2]
+                         net (fo=2, routed)           0.302    13.645    vproc/core/ex_stage_i/mul.mult_i/int_result__2[18]
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/I0
+    SLICE_X52Y202        LUT2 (Prop_lut2_I0_O)        0.122    13.767 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/O
+                         net (fo=1, routed)           0.000    13.767    vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2_n_0
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/S[2]
+    SLICE_X52Y202        CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.172    13.939 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/O[3]
+                         net (fo=3, routed)           0.212    14.151    vproc/core/id_stage_i/mulh_acc_reg[19][3]
+    SLICE_X50Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/I0
+    SLICE_X50Y201        LUT6 (Prop_lut6_I0_O)        0.120    14.271 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/O
+                         net (fo=1, routed)           0.321    14.592    vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3_n_0
+    SLICE_X53Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/I3
+    SLICE_X53Y201        LUT6 (Prop_lut6_I3_O)        0.043    14.635 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/O
+                         net (fo=3, routed)           0.284    14.919    vproc/core/id_stage_i/id_ex_pipe_o_reg[csr_en]_1[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    14.962 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/O
+                         net (fo=5, routed)           0.249    15.211    vproc/core/id_stage_i/vcore_xif\\.issue_req[rs][1]_42[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/I3
+    SLICE_X57Y201        LUT4 (Prop_lut4_I3_O)        0.043    15.254 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/O
+                         net (fo=1, routed)           0.232    15.486    vproc/core/id_stage_i/dec_data_q[mode][8]_i_16_n_0
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    15.529 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/O
+                         net (fo=2, routed)           0.380    15.909    vproc/core/if_stage_i/dec_data_q_reg[mode][8]_0
+    SLICE_X59Y197                                                     r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/I3
+    SLICE_X59Y197        LUT5 (Prop_lut5_I3_O)        0.043    15.952 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/O
+                         net (fo=4, routed)           0.366    16.318    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_2[8]
+    SLICE_X59Y194                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/I5
+    SLICE_X59Y194        LUT6 (Prop_lut6_I5_O)        0.043    16.361 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/O
+                         net (fo=1, routed)           0.233    16.594    vproc/core/if_stage_i/instr_state_q[12][0]_i_41_n_0
+    SLICE_X59Y193                                                     f  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/I1
+    SLICE_X59Y193        LUT2 (Prop_lut2_I1_O)        0.043    16.637 r  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/O
+                         net (fo=1, routed)           0.178    16.816    vproc/v_core/result_if/instr_state_q[12][0]_i_8
+    SLICE_X61Y193                                                     r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    16.859 r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/O
+                         net (fo=1, routed)           0.101    16.959    vproc/core/if_stage_i/instr_empty_res_q[4]_i_2_0
+    SLICE_X61Y193                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    17.002 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/O
+                         net (fo=7, routed)           0.162    17.164    vproc/core/if_stage_i/instr_state_q[12][0]_i_8_n_0
+    SLICE_X61Y193                                                     f  vproc/core/if_stage_i/result_csr_delayed_q_i_5/I1
+    SLICE_X61Y193        LUT6 (Prop_lut6_I1_O)        0.043    17.207 r  vproc/core/if_stage_i/result_csr_delayed_q_i_5/O
+                         net (fo=32, routed)          0.624    17.832    vproc/core/if_stage_i/dec_buf_valid_q_reg
+    SLICE_X61Y191                                                     r  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/I3
+    SLICE_X61Y191        LUT5 (Prop_lut5_I3_O)        0.043    17.875 f  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/O
+                         net (fo=4, routed)           0.920    18.795    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X61Y191                                                     f  vproc/core/if_stage_i/result_source_q[0]_i_3/I5
+    SLICE_X61Y191        LUT6 (Prop_lut6_I5_O)        0.043    18.838 f  vproc/core/if_stage_i/result_source_q[0]_i_3/O
+                         net (fo=6, routed)           0.399    19.237    vproc/v_core/result_if/result_empty_valid1_out
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_4/I0
+    SLICE_X58Y189        LUT4 (Prop_lut4_I0_O)        0.043    19.280 f  vproc/v_core/result_if/result_source_q[2]_i_4/O
+                         net (fo=1, routed)           0.364    19.643    vproc/v_core/result_if/result_source_q[2]_i_4_n_0
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_2/I5
+    SLICE_X58Y189        LUT6 (Prop_lut6_I5_O)        0.043    19.686 r  vproc/v_core/result_if/result_source_q[2]_i_2/O
+                         net (fo=6, routed)           0.426    20.112    vproc/v_core/result_if/result_source_d[2]
+    SLICE_X58Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_8/I0
+    SLICE_X58Y189        LUT2 (Prop_lut2_I0_O)        0.043    20.155 r  vproc/v_core/result_if/next_id_q[3]_i_8/O
+                         net (fo=5, routed)           0.365    20.520    vproc/v_core/result_if/last_wr_q_reg
+    SLICE_X60Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_4/I5
+    SLICE_X60Y189        LUT6 (Prop_lut6_I5_O)        0.043    20.563 f  vproc/v_core/result_if/next_id_q[3]_i_4/O
+                         net (fo=1, routed)           0.269    20.832    vproc/v_core/result_if/next_id_q[3]_i_4_n_0
+    SLICE_X60Y189                                                     f  vproc/v_core/result_if/next_id_q[3]_i_3/I0
+    SLICE_X60Y189        LUT5 (Prop_lut5_I0_O)        0.043    20.875 f  vproc/v_core/result_if/next_id_q[3]_i_3/O
+                         net (fo=6, routed)           0.124    20.999    vproc/core/ex_stage_i/vcore_xif\\.result_valid
+    SLICE_X60Y189                                                     f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/I0
+    SLICE_X60Y189        LUT6 (Prop_lut6_I0_O)        0.043    21.042 f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/O
+                         net (fo=11, routed)          0.293    21.336    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/vcore_xif\\.result_ready
+    SLICE_X60Y187                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/I4
+    SLICE_X60Y187        LUT6 (Prop_lut6_I4_O)        0.043    21.379 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/O
+                         net (fo=2, routed)           0.361    21.740    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6_n_0
+    SLICE_X60Y187                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/I3
+    SLICE_X60Y187        LUT6 (Prop_lut6_I3_O)        0.043    21.783 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/O
+                         net (fo=3, routed)           0.381    22.164    vproc/v_core/genblk9[0].pipe/pipeline/unpack/state_res_q_reg[first_cycle]
+    SLICE_X60Y185                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/I0
+    SLICE_X60Y185        LUT5 (Prop_lut5_I0_O)        0.043    22.207 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/O
+                         net (fo=3, routed)           0.257    22.464    vproc/v_core/genblk9[0].pipe/pipeline/unpack/unit_mux/unit_queue_enq_valid1
+    SLICE_X60Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/I0
+    SLICE_X60Y183        LUT6 (Prop_lut6_I0_O)        0.043    22.507 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/O
+                         net (fo=8, routed)           0.386    22.893    vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41_n_0
+    SLICE_X61Y180                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/I4
+    SLICE_X61Y180        LUT5 (Prop_lut5_I4_O)        0.043    22.936 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/O
+                         net (fo=9, routed)           0.368    23.305    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0_n_0
+    SLICE_X59Y183                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/I5
+    SLICE_X59Y183        LUT6 (Prop_lut6_I5_O)        0.043    23.348 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/O
+                         net (fo=3, routed)           0.316    23.663    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0_n_0
+    SLICE_X58Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/I0
+    SLICE_X58Y183        LUT6 (Prop_lut6_I0_O)        0.043    23.706 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/O
+                         net (fo=1, routed)           0.191    23.898    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14_n_0
+    SLICE_X57Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/I0
+    SLICE_X57Y183        LUT5 (Prop_lut5_I0_O)        0.043    23.941 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/O
+                         net (fo=1, routed)           0.299    24.240    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/unpack_ctrl_flags[pend_store]
+    SLICE_X56Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/I5
+    SLICE_X56Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.283 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/O
+                         net (fo=1, routed)           0.303    24.586    vproc/v_core/instr_queue/genblk9[0].pending_store
+    SLICE_X54Y183                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_6/I5
+    SLICE_X54Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.629 f  vproc/v_core/instr_queue/mem_rvalid_i_6/O
+                         net (fo=2, routed)           0.251    24.879    vproc/v_core/instr_queue/data_reg[0][0]_0
+    SLICE_X54Y184                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_4/I4
+    SLICE_X54Y184        LUT5 (Prop_lut5_I4_O)        0.043    24.922 f  vproc/v_core/instr_queue/mem_rvalid_i_4/O
+                         net (fo=1, routed)           0.398    25.320    vproc/v_core/instr_queue/vect_pending_store
+    SLICE_X53Y189                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_1/I2
+    SLICE_X53Y189        LUT4 (Prop_lut4_I2_O)        0.043    25.363 r  vproc/v_core/instr_queue/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.255    25.619    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X50Y189                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/I3
+    SLICE_X50Y189        LUT6 (Prop_lut6_I3_O)        0.043    25.662 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.665    26.326    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X23Y185                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/I0
+    SLICE_X23Y185        LUT6 (Prop_lut6_I0_O)        0.043    26.369 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/O
+                         net (fo=18, routed)          1.138    27.508    u_ram/mem_reg_1_0_7_0
+    RAMB36_X0Y45         RAMB36E1                                     r  u_ram/mem_reg_1_1_2/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   22.857    22.857 r  
+                         clock source latency         1.909    24.767    
+                         propagated clock network latency
+                                                      2.924    27.690    
+                         clock pessimism              0.337    28.027    
+                         clock uncertainty           -0.068    27.959    
+    RAMB36_X0Y45         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    27.631    u_ram/mem_reg_1_1_2
+  -------------------------------------------------------------------
+                         required time                         27.631    
+                         arrival time                         -27.508    
+  -------------------------------------------------------------------
+                         slack                                  0.124    
+
+Slack (MET) :             0.124ns  (required time - arrival time)
+  Source:                 vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Destination:            u_ram/mem_reg_1_1_2/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            22.857ns  (clk_raw rise@22.857ns - clk_raw rise@0.000ns)
+  Data Path Delay:        20.167ns  (logic 6.401ns (31.740%)  route 13.766ns (68.260%))
+  Logic Levels:           40  (CARRY4=2 DSP48E1=2 LUT2=4 LUT4=4 LUT5=7 LUT6=21)
+  Clock Path Skew:        -2.171ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.833ns = ( 27.690 - 22.857 ) 
+    Source Clock Delay      (SCD):    7.341ns
+    Clock Pessimism Removal (CPR):    0.337ns
+  Clock Uncertainty:      0.068ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.116ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+                         clock source latency         2.120     2.120    
+                         propagated clock network latency
+                                                      5.221     7.341    
+    SLICE_X55Y201        FDCE                         0.000     7.341 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+    SLICE_X55Y201        FDCE (Prop_fdce_C_Q)         0.204     7.545 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/Q
+                         net (fo=103, routed)         0.572     8.117    vproc/core/id_stage_i/id_ex_pipe[mul_operator]
+    SLICE_X53Y200                                                     r  vproc/core/id_stage_i/int_result__0_i_14/I2
+    SLICE_X53Y200        LUT4 (Prop_lut4_I2_O)        0.126     8.243 f  vproc/core/id_stage_i/int_result__0_i_14/O
+                         net (fo=1, routed)           0.329     8.572    vproc/core/ex_stage_i/mul.mult_i/op_a[3]
+    DSP48_X2Y81                                                       f  vproc/core/ex_stage_i/mul.mult_i/int_result__0/A[3]
+    DSP48_X2Y81          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      2.879    11.451 r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/PCOUT[47]
+                         net (fo=1, routed)           0.000    11.451    vproc/core/ex_stage_i/mul.mult_i/int_result__0_n_106
+    DSP48_X2Y82                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/PCIN[47]
+    DSP48_X2Y82          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077    12.528 r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/P[0]
+                         net (fo=2, routed)           0.490    13.018    vproc/core/ex_stage_i/mul.mult_i/int_result__1_n_105
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/I0
+    SLICE_X53Y202        LUT2 (Prop_lut2_I0_O)        0.043    13.061 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/O
+                         net (fo=1, routed)           0.000    13.061    vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3_n_0
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/S[1]
+    SLICE_X53Y202        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    13.343 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/O[2]
+                         net (fo=2, routed)           0.302    13.645    vproc/core/ex_stage_i/mul.mult_i/int_result__2[18]
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/I0
+    SLICE_X52Y202        LUT2 (Prop_lut2_I0_O)        0.122    13.767 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/O
+                         net (fo=1, routed)           0.000    13.767    vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2_n_0
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/S[2]
+    SLICE_X52Y202        CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.172    13.939 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/O[3]
+                         net (fo=3, routed)           0.212    14.151    vproc/core/id_stage_i/mulh_acc_reg[19][3]
+    SLICE_X50Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/I0
+    SLICE_X50Y201        LUT6 (Prop_lut6_I0_O)        0.120    14.271 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/O
+                         net (fo=1, routed)           0.321    14.592    vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3_n_0
+    SLICE_X53Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/I3
+    SLICE_X53Y201        LUT6 (Prop_lut6_I3_O)        0.043    14.635 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/O
+                         net (fo=3, routed)           0.284    14.919    vproc/core/id_stage_i/id_ex_pipe_o_reg[csr_en]_1[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    14.962 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/O
+                         net (fo=5, routed)           0.249    15.211    vproc/core/id_stage_i/vcore_xif\\.issue_req[rs][1]_42[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/I3
+    SLICE_X57Y201        LUT4 (Prop_lut4_I3_O)        0.043    15.254 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/O
+                         net (fo=1, routed)           0.232    15.486    vproc/core/id_stage_i/dec_data_q[mode][8]_i_16_n_0
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    15.529 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/O
+                         net (fo=2, routed)           0.380    15.909    vproc/core/if_stage_i/dec_data_q_reg[mode][8]_0
+    SLICE_X59Y197                                                     r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/I3
+    SLICE_X59Y197        LUT5 (Prop_lut5_I3_O)        0.043    15.952 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/O
+                         net (fo=4, routed)           0.366    16.318    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_2[8]
+    SLICE_X59Y194                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/I5
+    SLICE_X59Y194        LUT6 (Prop_lut6_I5_O)        0.043    16.361 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/O
+                         net (fo=1, routed)           0.233    16.594    vproc/core/if_stage_i/instr_state_q[12][0]_i_41_n_0
+    SLICE_X59Y193                                                     f  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/I1
+    SLICE_X59Y193        LUT2 (Prop_lut2_I1_O)        0.043    16.637 r  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/O
+                         net (fo=1, routed)           0.178    16.816    vproc/v_core/result_if/instr_state_q[12][0]_i_8
+    SLICE_X61Y193                                                     r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    16.859 r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/O
+                         net (fo=1, routed)           0.101    16.959    vproc/core/if_stage_i/instr_empty_res_q[4]_i_2_0
+    SLICE_X61Y193                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    17.002 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/O
+                         net (fo=7, routed)           0.162    17.164    vproc/core/if_stage_i/instr_state_q[12][0]_i_8_n_0
+    SLICE_X61Y193                                                     f  vproc/core/if_stage_i/result_csr_delayed_q_i_5/I1
+    SLICE_X61Y193        LUT6 (Prop_lut6_I1_O)        0.043    17.207 r  vproc/core/if_stage_i/result_csr_delayed_q_i_5/O
+                         net (fo=32, routed)          0.624    17.832    vproc/core/if_stage_i/dec_buf_valid_q_reg
+    SLICE_X61Y191                                                     r  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/I3
+    SLICE_X61Y191        LUT5 (Prop_lut5_I3_O)        0.043    17.875 f  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/O
+                         net (fo=4, routed)           0.920    18.795    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X61Y191                                                     f  vproc/core/if_stage_i/result_source_q[0]_i_3/I5
+    SLICE_X61Y191        LUT6 (Prop_lut6_I5_O)        0.043    18.838 f  vproc/core/if_stage_i/result_source_q[0]_i_3/O
+                         net (fo=6, routed)           0.399    19.237    vproc/v_core/result_if/result_empty_valid1_out
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_4/I0
+    SLICE_X58Y189        LUT4 (Prop_lut4_I0_O)        0.043    19.280 f  vproc/v_core/result_if/result_source_q[2]_i_4/O
+                         net (fo=1, routed)           0.364    19.643    vproc/v_core/result_if/result_source_q[2]_i_4_n_0
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_2/I5
+    SLICE_X58Y189        LUT6 (Prop_lut6_I5_O)        0.043    19.686 r  vproc/v_core/result_if/result_source_q[2]_i_2/O
+                         net (fo=6, routed)           0.426    20.112    vproc/v_core/result_if/result_source_d[2]
+    SLICE_X58Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_8/I0
+    SLICE_X58Y189        LUT2 (Prop_lut2_I0_O)        0.043    20.155 r  vproc/v_core/result_if/next_id_q[3]_i_8/O
+                         net (fo=5, routed)           0.365    20.520    vproc/v_core/result_if/last_wr_q_reg
+    SLICE_X60Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_4/I5
+    SLICE_X60Y189        LUT6 (Prop_lut6_I5_O)        0.043    20.563 f  vproc/v_core/result_if/next_id_q[3]_i_4/O
+                         net (fo=1, routed)           0.269    20.832    vproc/v_core/result_if/next_id_q[3]_i_4_n_0
+    SLICE_X60Y189                                                     f  vproc/v_core/result_if/next_id_q[3]_i_3/I0
+    SLICE_X60Y189        LUT5 (Prop_lut5_I0_O)        0.043    20.875 f  vproc/v_core/result_if/next_id_q[3]_i_3/O
+                         net (fo=6, routed)           0.124    20.999    vproc/core/ex_stage_i/vcore_xif\\.result_valid
+    SLICE_X60Y189                                                     f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/I0
+    SLICE_X60Y189        LUT6 (Prop_lut6_I0_O)        0.043    21.042 f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/O
+                         net (fo=11, routed)          0.293    21.336    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/vcore_xif\\.result_ready
+    SLICE_X60Y187                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/I4
+    SLICE_X60Y187        LUT6 (Prop_lut6_I4_O)        0.043    21.379 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/O
+                         net (fo=2, routed)           0.361    21.740    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6_n_0
+    SLICE_X60Y187                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/I3
+    SLICE_X60Y187        LUT6 (Prop_lut6_I3_O)        0.043    21.783 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/O
+                         net (fo=3, routed)           0.381    22.164    vproc/v_core/genblk9[0].pipe/pipeline/unpack/state_res_q_reg[first_cycle]
+    SLICE_X60Y185                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/I0
+    SLICE_X60Y185        LUT5 (Prop_lut5_I0_O)        0.043    22.207 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/O
+                         net (fo=3, routed)           0.257    22.464    vproc/v_core/genblk9[0].pipe/pipeline/unpack/unit_mux/unit_queue_enq_valid1
+    SLICE_X60Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/I0
+    SLICE_X60Y183        LUT6 (Prop_lut6_I0_O)        0.043    22.507 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/O
+                         net (fo=8, routed)           0.386    22.893    vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41_n_0
+    SLICE_X61Y180                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/I4
+    SLICE_X61Y180        LUT5 (Prop_lut5_I4_O)        0.043    22.936 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/O
+                         net (fo=9, routed)           0.368    23.305    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0_n_0
+    SLICE_X59Y183                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/I5
+    SLICE_X59Y183        LUT6 (Prop_lut6_I5_O)        0.043    23.348 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/O
+                         net (fo=3, routed)           0.316    23.663    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0_n_0
+    SLICE_X58Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/I0
+    SLICE_X58Y183        LUT6 (Prop_lut6_I0_O)        0.043    23.706 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/O
+                         net (fo=1, routed)           0.191    23.898    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14_n_0
+    SLICE_X57Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/I0
+    SLICE_X57Y183        LUT5 (Prop_lut5_I0_O)        0.043    23.941 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/O
+                         net (fo=1, routed)           0.299    24.240    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/unpack_ctrl_flags[pend_store]
+    SLICE_X56Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/I5
+    SLICE_X56Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.283 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/O
+                         net (fo=1, routed)           0.303    24.586    vproc/v_core/instr_queue/genblk9[0].pending_store
+    SLICE_X54Y183                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_6/I5
+    SLICE_X54Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.629 f  vproc/v_core/instr_queue/mem_rvalid_i_6/O
+                         net (fo=2, routed)           0.251    24.879    vproc/v_core/instr_queue/data_reg[0][0]_0
+    SLICE_X54Y184                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_4/I4
+    SLICE_X54Y184        LUT5 (Prop_lut5_I4_O)        0.043    24.922 f  vproc/v_core/instr_queue/mem_rvalid_i_4/O
+                         net (fo=1, routed)           0.398    25.320    vproc/v_core/instr_queue/vect_pending_store
+    SLICE_X53Y189                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_1/I2
+    SLICE_X53Y189        LUT4 (Prop_lut4_I2_O)        0.043    25.363 r  vproc/v_core/instr_queue/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.255    25.619    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X50Y189                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/I3
+    SLICE_X50Y189        LUT6 (Prop_lut6_I3_O)        0.043    25.662 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.665    26.326    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X23Y185                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/I0
+    SLICE_X23Y185        LUT6 (Prop_lut6_I0_O)        0.043    26.369 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/O
+                         net (fo=18, routed)          1.138    27.508    u_ram/mem_reg_1_0_7_0
+    RAMB36_X0Y45         RAMB36E1                                     r  u_ram/mem_reg_1_1_2/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   22.857    22.857 r  
+                         clock source latency         1.909    24.767    
+                         propagated clock network latency
+                                                      2.924    27.690    
+                         clock pessimism              0.337    28.027    
+                         clock uncertainty           -0.068    27.959    
+    RAMB36_X0Y45         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    27.631    u_ram/mem_reg_1_1_2
+  -------------------------------------------------------------------
+                         required time                         27.631    
+                         arrival time                         -27.508    
+  -------------------------------------------------------------------
+                         slack                                  0.124    
+
+Slack (MET) :             0.124ns  (required time - arrival time)
+  Source:                 vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Destination:            u_ram/mem_reg_1_1_2/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            22.857ns  (clk_raw rise@22.857ns - clk_raw rise@0.000ns)
+  Data Path Delay:        20.167ns  (logic 6.401ns (31.740%)  route 13.766ns (68.260%))
+  Logic Levels:           40  (CARRY4=2 DSP48E1=2 LUT2=4 LUT4=4 LUT5=7 LUT6=21)
+  Clock Path Skew:        -2.171ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.833ns = ( 27.690 - 22.857 ) 
+    Source Clock Delay      (SCD):    7.341ns
+    Clock Pessimism Removal (CPR):    0.337ns
+  Clock Uncertainty:      0.068ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.116ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+                         clock source latency         2.120     2.120    
+                         propagated clock network latency
+                                                      5.221     7.341    
+    SLICE_X55Y201        FDCE                         0.000     7.341 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+    SLICE_X55Y201        FDCE (Prop_fdce_C_Q)         0.204     7.545 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/Q
+                         net (fo=103, routed)         0.572     8.117    vproc/core/id_stage_i/id_ex_pipe[mul_operator]
+    SLICE_X53Y200                                                     r  vproc/core/id_stage_i/int_result__0_i_14/I2
+    SLICE_X53Y200        LUT4 (Prop_lut4_I2_O)        0.126     8.243 r  vproc/core/id_stage_i/int_result__0_i_14/O
+                         net (fo=1, routed)           0.329     8.572    vproc/core/ex_stage_i/mul.mult_i/op_a[3]
+    DSP48_X2Y81                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/A[3]
+    DSP48_X2Y81          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      2.879    11.451 r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/PCOUT[47]
+                         net (fo=1, routed)           0.000    11.451    vproc/core/ex_stage_i/mul.mult_i/int_result__0_n_106
+    DSP48_X2Y82                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/PCIN[47]
+    DSP48_X2Y82          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077    12.528 f  vproc/core/ex_stage_i/mul.mult_i/int_result__1/P[0]
+                         net (fo=2, routed)           0.490    13.018    vproc/core/ex_stage_i/mul.mult_i/int_result__1_n_105
+    SLICE_X53Y202                                                     f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/I0
+    SLICE_X53Y202        LUT2 (Prop_lut2_I0_O)        0.043    13.061 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/O
+                         net (fo=1, routed)           0.000    13.061    vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3_n_0
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/S[1]
+    SLICE_X53Y202        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    13.343 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/O[2]
+                         net (fo=2, routed)           0.302    13.645    vproc/core/ex_stage_i/mul.mult_i/int_result__2[18]
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/I0
+    SLICE_X52Y202        LUT2 (Prop_lut2_I0_O)        0.122    13.767 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/O
+                         net (fo=1, routed)           0.000    13.767    vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2_n_0
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/S[2]
+    SLICE_X52Y202        CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.172    13.939 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/O[3]
+                         net (fo=3, routed)           0.212    14.151    vproc/core/id_stage_i/mulh_acc_reg[19][3]
+    SLICE_X50Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/I0
+    SLICE_X50Y201        LUT6 (Prop_lut6_I0_O)        0.120    14.271 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/O
+                         net (fo=1, routed)           0.321    14.592    vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3_n_0
+    SLICE_X53Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/I3
+    SLICE_X53Y201        LUT6 (Prop_lut6_I3_O)        0.043    14.635 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/O
+                         net (fo=3, routed)           0.284    14.919    vproc/core/id_stage_i/id_ex_pipe_o_reg[csr_en]_1[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    14.962 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/O
+                         net (fo=5, routed)           0.249    15.211    vproc/core/id_stage_i/vcore_xif\\.issue_req[rs][1]_42[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/I3
+    SLICE_X57Y201        LUT4 (Prop_lut4_I3_O)        0.043    15.254 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/O
+                         net (fo=1, routed)           0.232    15.486    vproc/core/id_stage_i/dec_data_q[mode][8]_i_16_n_0
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    15.529 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/O
+                         net (fo=2, routed)           0.380    15.909    vproc/core/if_stage_i/dec_data_q_reg[mode][8]_0
+    SLICE_X59Y197                                                     r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/I3
+    SLICE_X59Y197        LUT5 (Prop_lut5_I3_O)        0.043    15.952 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/O
+                         net (fo=4, routed)           0.366    16.318    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_2[8]
+    SLICE_X59Y194                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/I5
+    SLICE_X59Y194        LUT6 (Prop_lut6_I5_O)        0.043    16.361 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/O
+                         net (fo=1, routed)           0.233    16.594    vproc/core/if_stage_i/instr_state_q[12][0]_i_41_n_0
+    SLICE_X59Y193                                                     f  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/I1
+    SLICE_X59Y193        LUT2 (Prop_lut2_I1_O)        0.043    16.637 r  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/O
+                         net (fo=1, routed)           0.178    16.816    vproc/v_core/result_if/instr_state_q[12][0]_i_8
+    SLICE_X61Y193                                                     r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    16.859 r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/O
+                         net (fo=1, routed)           0.101    16.959    vproc/core/if_stage_i/instr_empty_res_q[4]_i_2_0
+    SLICE_X61Y193                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    17.002 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/O
+                         net (fo=7, routed)           0.162    17.164    vproc/core/if_stage_i/instr_state_q[12][0]_i_8_n_0
+    SLICE_X61Y193                                                     f  vproc/core/if_stage_i/result_csr_delayed_q_i_5/I1
+    SLICE_X61Y193        LUT6 (Prop_lut6_I1_O)        0.043    17.207 r  vproc/core/if_stage_i/result_csr_delayed_q_i_5/O
+                         net (fo=32, routed)          0.624    17.832    vproc/core/if_stage_i/dec_buf_valid_q_reg
+    SLICE_X61Y191                                                     r  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/I3
+    SLICE_X61Y191        LUT5 (Prop_lut5_I3_O)        0.043    17.875 f  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/O
+                         net (fo=4, routed)           0.920    18.795    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X61Y191                                                     f  vproc/core/if_stage_i/result_source_q[0]_i_3/I5
+    SLICE_X61Y191        LUT6 (Prop_lut6_I5_O)        0.043    18.838 f  vproc/core/if_stage_i/result_source_q[0]_i_3/O
+                         net (fo=6, routed)           0.399    19.237    vproc/v_core/result_if/result_empty_valid1_out
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_4/I0
+    SLICE_X58Y189        LUT4 (Prop_lut4_I0_O)        0.043    19.280 f  vproc/v_core/result_if/result_source_q[2]_i_4/O
+                         net (fo=1, routed)           0.364    19.643    vproc/v_core/result_if/result_source_q[2]_i_4_n_0
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_2/I5
+    SLICE_X58Y189        LUT6 (Prop_lut6_I5_O)        0.043    19.686 r  vproc/v_core/result_if/result_source_q[2]_i_2/O
+                         net (fo=6, routed)           0.426    20.112    vproc/v_core/result_if/result_source_d[2]
+    SLICE_X58Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_8/I0
+    SLICE_X58Y189        LUT2 (Prop_lut2_I0_O)        0.043    20.155 r  vproc/v_core/result_if/next_id_q[3]_i_8/O
+                         net (fo=5, routed)           0.365    20.520    vproc/v_core/result_if/last_wr_q_reg
+    SLICE_X60Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_4/I5
+    SLICE_X60Y189        LUT6 (Prop_lut6_I5_O)        0.043    20.563 f  vproc/v_core/result_if/next_id_q[3]_i_4/O
+                         net (fo=1, routed)           0.269    20.832    vproc/v_core/result_if/next_id_q[3]_i_4_n_0
+    SLICE_X60Y189                                                     f  vproc/v_core/result_if/next_id_q[3]_i_3/I0
+    SLICE_X60Y189        LUT5 (Prop_lut5_I0_O)        0.043    20.875 f  vproc/v_core/result_if/next_id_q[3]_i_3/O
+                         net (fo=6, routed)           0.124    20.999    vproc/core/ex_stage_i/vcore_xif\\.result_valid
+    SLICE_X60Y189                                                     f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/I0
+    SLICE_X60Y189        LUT6 (Prop_lut6_I0_O)        0.043    21.042 f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/O
+                         net (fo=11, routed)          0.293    21.336    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/vcore_xif\\.result_ready
+    SLICE_X60Y187                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/I4
+    SLICE_X60Y187        LUT6 (Prop_lut6_I4_O)        0.043    21.379 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/O
+                         net (fo=2, routed)           0.361    21.740    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6_n_0
+    SLICE_X60Y187                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/I3
+    SLICE_X60Y187        LUT6 (Prop_lut6_I3_O)        0.043    21.783 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/O
+                         net (fo=3, routed)           0.381    22.164    vproc/v_core/genblk9[0].pipe/pipeline/unpack/state_res_q_reg[first_cycle]
+    SLICE_X60Y185                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/I0
+    SLICE_X60Y185        LUT5 (Prop_lut5_I0_O)        0.043    22.207 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/O
+                         net (fo=3, routed)           0.257    22.464    vproc/v_core/genblk9[0].pipe/pipeline/unpack/unit_mux/unit_queue_enq_valid1
+    SLICE_X60Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/I0
+    SLICE_X60Y183        LUT6 (Prop_lut6_I0_O)        0.043    22.507 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/O
+                         net (fo=8, routed)           0.386    22.893    vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41_n_0
+    SLICE_X61Y180                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/I4
+    SLICE_X61Y180        LUT5 (Prop_lut5_I4_O)        0.043    22.936 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/O
+                         net (fo=9, routed)           0.368    23.305    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0_n_0
+    SLICE_X59Y183                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/I5
+    SLICE_X59Y183        LUT6 (Prop_lut6_I5_O)        0.043    23.348 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/O
+                         net (fo=3, routed)           0.316    23.663    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0_n_0
+    SLICE_X58Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/I0
+    SLICE_X58Y183        LUT6 (Prop_lut6_I0_O)        0.043    23.706 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/O
+                         net (fo=1, routed)           0.191    23.898    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14_n_0
+    SLICE_X57Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/I0
+    SLICE_X57Y183        LUT5 (Prop_lut5_I0_O)        0.043    23.941 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/O
+                         net (fo=1, routed)           0.299    24.240    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/unpack_ctrl_flags[pend_store]
+    SLICE_X56Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/I5
+    SLICE_X56Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.283 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/O
+                         net (fo=1, routed)           0.303    24.586    vproc/v_core/instr_queue/genblk9[0].pending_store
+    SLICE_X54Y183                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_6/I5
+    SLICE_X54Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.629 f  vproc/v_core/instr_queue/mem_rvalid_i_6/O
+                         net (fo=2, routed)           0.251    24.879    vproc/v_core/instr_queue/data_reg[0][0]_0
+    SLICE_X54Y184                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_4/I4
+    SLICE_X54Y184        LUT5 (Prop_lut5_I4_O)        0.043    24.922 f  vproc/v_core/instr_queue/mem_rvalid_i_4/O
+                         net (fo=1, routed)           0.398    25.320    vproc/v_core/instr_queue/vect_pending_store
+    SLICE_X53Y189                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_1/I2
+    SLICE_X53Y189        LUT4 (Prop_lut4_I2_O)        0.043    25.363 r  vproc/v_core/instr_queue/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.255    25.619    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X50Y189                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/I3
+    SLICE_X50Y189        LUT6 (Prop_lut6_I3_O)        0.043    25.662 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.665    26.326    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X23Y185                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/I0
+    SLICE_X23Y185        LUT6 (Prop_lut6_I0_O)        0.043    26.369 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/O
+                         net (fo=18, routed)          1.138    27.508    u_ram/mem_reg_1_0_7_0
+    RAMB36_X0Y45         RAMB36E1                                     r  u_ram/mem_reg_1_1_2/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   22.857    22.857 r  
+                         clock source latency         1.909    24.767    
+                         propagated clock network latency
+                                                      2.924    27.690    
+                         clock pessimism              0.337    28.027    
+                         clock uncertainty           -0.068    27.959    
+    RAMB36_X0Y45         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    27.631    u_ram/mem_reg_1_1_2
+  -------------------------------------------------------------------
+                         required time                         27.631    
+                         arrival time                         -27.508    
+  -------------------------------------------------------------------
+                         slack                                  0.124    
+
+Slack (MET) :             0.124ns  (required time - arrival time)
+  Source:                 vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Destination:            u_ram/mem_reg_1_1_2/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            22.857ns  (clk_raw rise@22.857ns - clk_raw rise@0.000ns)
+  Data Path Delay:        20.167ns  (logic 6.401ns (31.740%)  route 13.766ns (68.260%))
+  Logic Levels:           40  (CARRY4=2 DSP48E1=2 LUT2=4 LUT4=4 LUT5=7 LUT6=21)
+  Clock Path Skew:        -2.171ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.833ns = ( 27.690 - 22.857 ) 
+    Source Clock Delay      (SCD):    7.341ns
+    Clock Pessimism Removal (CPR):    0.337ns
+  Clock Uncertainty:      0.068ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.116ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+                         clock source latency         2.120     2.120    
+                         propagated clock network latency
+                                                      5.221     7.341    
+    SLICE_X55Y201        FDCE                         0.000     7.341 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+    SLICE_X55Y201        FDCE (Prop_fdce_C_Q)         0.204     7.545 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/Q
+                         net (fo=103, routed)         0.572     8.117    vproc/core/id_stage_i/id_ex_pipe[mul_operator]
+    SLICE_X53Y200                                                     r  vproc/core/id_stage_i/int_result__0_i_14/I2
+    SLICE_X53Y200        LUT4 (Prop_lut4_I2_O)        0.126     8.243 r  vproc/core/id_stage_i/int_result__0_i_14/O
+                         net (fo=1, routed)           0.329     8.572    vproc/core/ex_stage_i/mul.mult_i/op_a[3]
+    DSP48_X2Y81                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/A[3]
+    DSP48_X2Y81          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      2.879    11.451 r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/PCOUT[47]
+                         net (fo=1, routed)           0.000    11.451    vproc/core/ex_stage_i/mul.mult_i/int_result__0_n_106
+    DSP48_X2Y82                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/PCIN[47]
+    DSP48_X2Y82          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077    12.528 r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/P[0]
+                         net (fo=2, routed)           0.490    13.018    vproc/core/ex_stage_i/mul.mult_i/int_result__1_n_105
+    SLICE_X53Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/I0
+    SLICE_X53Y202        LUT2 (Prop_lut2_I0_O)        0.043    13.061 f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/O
+                         net (fo=1, routed)           0.000    13.061    vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3_n_0
+    SLICE_X53Y202                                                     f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/S[1]
+    SLICE_X53Y202        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    13.343 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/O[2]
+                         net (fo=2, routed)           0.302    13.645    vproc/core/ex_stage_i/mul.mult_i/int_result__2[18]
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/I0
+    SLICE_X52Y202        LUT2 (Prop_lut2_I0_O)        0.122    13.767 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/O
+                         net (fo=1, routed)           0.000    13.767    vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2_n_0
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/S[2]
+    SLICE_X52Y202        CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.172    13.939 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/O[3]
+                         net (fo=3, routed)           0.212    14.151    vproc/core/id_stage_i/mulh_acc_reg[19][3]
+    SLICE_X50Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/I0
+    SLICE_X50Y201        LUT6 (Prop_lut6_I0_O)        0.120    14.271 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/O
+                         net (fo=1, routed)           0.321    14.592    vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3_n_0
+    SLICE_X53Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/I3
+    SLICE_X53Y201        LUT6 (Prop_lut6_I3_O)        0.043    14.635 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/O
+                         net (fo=3, routed)           0.284    14.919    vproc/core/id_stage_i/id_ex_pipe_o_reg[csr_en]_1[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    14.962 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/O
+                         net (fo=5, routed)           0.249    15.211    vproc/core/id_stage_i/vcore_xif\\.issue_req[rs][1]_42[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/I3
+    SLICE_X57Y201        LUT4 (Prop_lut4_I3_O)        0.043    15.254 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/O
+                         net (fo=1, routed)           0.232    15.486    vproc/core/id_stage_i/dec_data_q[mode][8]_i_16_n_0
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    15.529 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/O
+                         net (fo=2, routed)           0.380    15.909    vproc/core/if_stage_i/dec_data_q_reg[mode][8]_0
+    SLICE_X59Y197                                                     r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/I3
+    SLICE_X59Y197        LUT5 (Prop_lut5_I3_O)        0.043    15.952 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/O
+                         net (fo=4, routed)           0.366    16.318    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_2[8]
+    SLICE_X59Y194                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/I5
+    SLICE_X59Y194        LUT6 (Prop_lut6_I5_O)        0.043    16.361 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/O
+                         net (fo=1, routed)           0.233    16.594    vproc/core/if_stage_i/instr_state_q[12][0]_i_41_n_0
+    SLICE_X59Y193                                                     f  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/I1
+    SLICE_X59Y193        LUT2 (Prop_lut2_I1_O)        0.043    16.637 r  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/O
+                         net (fo=1, routed)           0.178    16.816    vproc/v_core/result_if/instr_state_q[12][0]_i_8
+    SLICE_X61Y193                                                     r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    16.859 r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/O
+                         net (fo=1, routed)           0.101    16.959    vproc/core/if_stage_i/instr_empty_res_q[4]_i_2_0
+    SLICE_X61Y193                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    17.002 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/O
+                         net (fo=7, routed)           0.162    17.164    vproc/core/if_stage_i/instr_state_q[12][0]_i_8_n_0
+    SLICE_X61Y193                                                     f  vproc/core/if_stage_i/result_csr_delayed_q_i_5/I1
+    SLICE_X61Y193        LUT6 (Prop_lut6_I1_O)        0.043    17.207 r  vproc/core/if_stage_i/result_csr_delayed_q_i_5/O
+                         net (fo=32, routed)          0.624    17.832    vproc/core/if_stage_i/dec_buf_valid_q_reg
+    SLICE_X61Y191                                                     r  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/I3
+    SLICE_X61Y191        LUT5 (Prop_lut5_I3_O)        0.043    17.875 f  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/O
+                         net (fo=4, routed)           0.920    18.795    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X61Y191                                                     f  vproc/core/if_stage_i/result_source_q[0]_i_3/I5
+    SLICE_X61Y191        LUT6 (Prop_lut6_I5_O)        0.043    18.838 f  vproc/core/if_stage_i/result_source_q[0]_i_3/O
+                         net (fo=6, routed)           0.399    19.237    vproc/v_core/result_if/result_empty_valid1_out
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_4/I0
+    SLICE_X58Y189        LUT4 (Prop_lut4_I0_O)        0.043    19.280 f  vproc/v_core/result_if/result_source_q[2]_i_4/O
+                         net (fo=1, routed)           0.364    19.643    vproc/v_core/result_if/result_source_q[2]_i_4_n_0
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_2/I5
+    SLICE_X58Y189        LUT6 (Prop_lut6_I5_O)        0.043    19.686 r  vproc/v_core/result_if/result_source_q[2]_i_2/O
+                         net (fo=6, routed)           0.426    20.112    vproc/v_core/result_if/result_source_d[2]
+    SLICE_X58Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_8/I0
+    SLICE_X58Y189        LUT2 (Prop_lut2_I0_O)        0.043    20.155 r  vproc/v_core/result_if/next_id_q[3]_i_8/O
+                         net (fo=5, routed)           0.365    20.520    vproc/v_core/result_if/last_wr_q_reg
+    SLICE_X60Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_4/I5
+    SLICE_X60Y189        LUT6 (Prop_lut6_I5_O)        0.043    20.563 f  vproc/v_core/result_if/next_id_q[3]_i_4/O
+                         net (fo=1, routed)           0.269    20.832    vproc/v_core/result_if/next_id_q[3]_i_4_n_0
+    SLICE_X60Y189                                                     f  vproc/v_core/result_if/next_id_q[3]_i_3/I0
+    SLICE_X60Y189        LUT5 (Prop_lut5_I0_O)        0.043    20.875 f  vproc/v_core/result_if/next_id_q[3]_i_3/O
+                         net (fo=6, routed)           0.124    20.999    vproc/core/ex_stage_i/vcore_xif\\.result_valid
+    SLICE_X60Y189                                                     f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/I0
+    SLICE_X60Y189        LUT6 (Prop_lut6_I0_O)        0.043    21.042 f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/O
+                         net (fo=11, routed)          0.293    21.336    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/vcore_xif\\.result_ready
+    SLICE_X60Y187                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/I4
+    SLICE_X60Y187        LUT6 (Prop_lut6_I4_O)        0.043    21.379 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/O
+                         net (fo=2, routed)           0.361    21.740    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6_n_0
+    SLICE_X60Y187                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/I3
+    SLICE_X60Y187        LUT6 (Prop_lut6_I3_O)        0.043    21.783 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/O
+                         net (fo=3, routed)           0.381    22.164    vproc/v_core/genblk9[0].pipe/pipeline/unpack/state_res_q_reg[first_cycle]
+    SLICE_X60Y185                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/I0
+    SLICE_X60Y185        LUT5 (Prop_lut5_I0_O)        0.043    22.207 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/O
+                         net (fo=3, routed)           0.257    22.464    vproc/v_core/genblk9[0].pipe/pipeline/unpack/unit_mux/unit_queue_enq_valid1
+    SLICE_X60Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/I0
+    SLICE_X60Y183        LUT6 (Prop_lut6_I0_O)        0.043    22.507 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/O
+                         net (fo=8, routed)           0.386    22.893    vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41_n_0
+    SLICE_X61Y180                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/I4
+    SLICE_X61Y180        LUT5 (Prop_lut5_I4_O)        0.043    22.936 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/O
+                         net (fo=9, routed)           0.368    23.305    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0_n_0
+    SLICE_X59Y183                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/I5
+    SLICE_X59Y183        LUT6 (Prop_lut6_I5_O)        0.043    23.348 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/O
+                         net (fo=3, routed)           0.316    23.663    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0_n_0
+    SLICE_X58Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/I0
+    SLICE_X58Y183        LUT6 (Prop_lut6_I0_O)        0.043    23.706 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/O
+                         net (fo=1, routed)           0.191    23.898    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14_n_0
+    SLICE_X57Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/I0
+    SLICE_X57Y183        LUT5 (Prop_lut5_I0_O)        0.043    23.941 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/O
+                         net (fo=1, routed)           0.299    24.240    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/unpack_ctrl_flags[pend_store]
+    SLICE_X56Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/I5
+    SLICE_X56Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.283 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/O
+                         net (fo=1, routed)           0.303    24.586    vproc/v_core/instr_queue/genblk9[0].pending_store
+    SLICE_X54Y183                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_6/I5
+    SLICE_X54Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.629 f  vproc/v_core/instr_queue/mem_rvalid_i_6/O
+                         net (fo=2, routed)           0.251    24.879    vproc/v_core/instr_queue/data_reg[0][0]_0
+    SLICE_X54Y184                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_4/I4
+    SLICE_X54Y184        LUT5 (Prop_lut5_I4_O)        0.043    24.922 f  vproc/v_core/instr_queue/mem_rvalid_i_4/O
+                         net (fo=1, routed)           0.398    25.320    vproc/v_core/instr_queue/vect_pending_store
+    SLICE_X53Y189                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_1/I2
+    SLICE_X53Y189        LUT4 (Prop_lut4_I2_O)        0.043    25.363 r  vproc/v_core/instr_queue/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.255    25.619    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X50Y189                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/I3
+    SLICE_X50Y189        LUT6 (Prop_lut6_I3_O)        0.043    25.662 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.665    26.326    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X23Y185                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/I0
+    SLICE_X23Y185        LUT6 (Prop_lut6_I0_O)        0.043    26.369 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/O
+                         net (fo=18, routed)          1.138    27.508    u_ram/mem_reg_1_0_7_0
+    RAMB36_X0Y45         RAMB36E1                                     r  u_ram/mem_reg_1_1_2/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   22.857    22.857 r  
+                         clock source latency         1.909    24.767    
+                         propagated clock network latency
+                                                      2.924    27.690    
+                         clock pessimism              0.337    28.027    
+                         clock uncertainty           -0.068    27.959    
+    RAMB36_X0Y45         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    27.631    u_ram/mem_reg_1_1_2
+  -------------------------------------------------------------------
+                         required time                         27.631    
+                         arrival time                         -27.508    
+  -------------------------------------------------------------------
+                         slack                                  0.124    
+
+Slack (MET) :             0.124ns  (required time - arrival time)
+  Source:                 vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+                            (rising edge-triggered cell FDCE clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Destination:            u_ram/mem_reg_1_1_2/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@11.429ns period=22.857ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            22.857ns  (clk_raw rise@22.857ns - clk_raw rise@0.000ns)
+  Data Path Delay:        20.167ns  (logic 6.401ns (31.740%)  route 13.766ns (68.260%))
+  Logic Levels:           40  (CARRY4=2 DSP48E1=2 LUT2=4 LUT4=4 LUT5=7 LUT6=21)
+  Clock Path Skew:        -2.171ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.833ns = ( 27.690 - 22.857 ) 
+    Source Clock Delay      (SCD):    7.341ns
+    Clock Pessimism Removal (CPR):    0.337ns
+  Clock Uncertainty:      0.068ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.116ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_raw rise edge)    0.000     0.000 r  
+                         clock source latency         2.120     2.120    
+                         propagated clock network latency
+                                                      5.221     7.341    
+    SLICE_X55Y201        FDCE                         0.000     7.341 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/C
+    SLICE_X55Y201        FDCE (Prop_fdce_C_Q)         0.204     7.545 r  vproc/core/id_stage_i/id_ex_pipe_o_reg[mul_operator][0]/Q
+                         net (fo=103, routed)         0.572     8.117    vproc/core/id_stage_i/id_ex_pipe[mul_operator]
+    SLICE_X53Y200                                                     r  vproc/core/id_stage_i/int_result__0_i_14/I2
+    SLICE_X53Y200        LUT4 (Prop_lut4_I2_O)        0.126     8.243 r  vproc/core/id_stage_i/int_result__0_i_14/O
+                         net (fo=1, routed)           0.329     8.572    vproc/core/ex_stage_i/mul.mult_i/op_a[3]
+    DSP48_X2Y81                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/A[3]
+    DSP48_X2Y81          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      2.879    11.451 r  vproc/core/ex_stage_i/mul.mult_i/int_result__0/PCOUT[47]
+                         net (fo=1, routed)           0.000    11.451    vproc/core/ex_stage_i/mul.mult_i/int_result__0_n_106
+    DSP48_X2Y82                                                       r  vproc/core/ex_stage_i/mul.mult_i/int_result__1/PCIN[47]
+    DSP48_X2Y82          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077    12.528 f  vproc/core/ex_stage_i/mul.mult_i/int_result__1/P[0]
+                         net (fo=2, routed)           0.490    13.018    vproc/core/ex_stage_i/mul.mult_i/int_result__1_n_105
+    SLICE_X53Y202                                                     f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/I0
+    SLICE_X53Y202        LUT2 (Prop_lut2_I0_O)        0.043    13.061 f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3/O
+                         net (fo=1, routed)           0.000    13.061    vproc/core/ex_stage_i/mul.mult_i/int_result_carry_i_3_n_0
+    SLICE_X53Y202                                                     f  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/S[1]
+    SLICE_X53Y202        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    13.343 r  vproc/core/ex_stage_i/mul.mult_i/int_result_carry/O[2]
+                         net (fo=2, routed)           0.302    13.645    vproc/core/ex_stage_i/mul.mult_i/int_result__2[18]
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/I0
+    SLICE_X52Y202        LUT2 (Prop_lut2_I0_O)        0.122    13.767 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2/O
+                         net (fo=1, routed)           0.000    13.767    vproc/core/ex_stage_i/mul.mult_i/result_carry__3_i_2_n_0
+    SLICE_X52Y202                                                     r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/S[2]
+    SLICE_X52Y202        CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.172    13.939 r  vproc/core/ex_stage_i/mul.mult_i/result_carry__3/O[3]
+                         net (fo=3, routed)           0.212    14.151    vproc/core/id_stage_i/mulh_acc_reg[19][3]
+    SLICE_X50Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/I0
+    SLICE_X50Y201        LUT6 (Prop_lut6_I0_O)        0.120    14.271 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3/O
+                         net (fo=1, routed)           0.321    14.592    vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_3_n_0
+    SLICE_X53Y201                                                     r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/I3
+    SLICE_X53Y201        LUT6 (Prop_lut6_I3_O)        0.043    14.635 r  vproc/core/id_stage_i/ex_wb_pipe_o[rf_wdata][19]_i_1/O
+                         net (fo=3, routed)           0.284    14.919    vproc/core/id_stage_i/id_ex_pipe_o_reg[csr_en]_1[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    14.962 r  vproc/core/id_stage_i/id_ex_pipe_o[muldiv_operand_b][19]_i_1/O
+                         net (fo=5, routed)           0.249    15.211    vproc/core/id_stage_i/vcore_xif\\.issue_req[rs][1]_42[19]
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/I3
+    SLICE_X57Y201        LUT4 (Prop_lut4_I3_O)        0.043    15.254 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_16/O
+                         net (fo=1, routed)           0.232    15.486    vproc/core/id_stage_i/dec_data_q[mode][8]_i_16_n_0
+    SLICE_X57Y201                                                     r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/I4
+    SLICE_X57Y201        LUT6 (Prop_lut6_I4_O)        0.043    15.529 r  vproc/core/id_stage_i/dec_data_q[mode][8]_i_5/O
+                         net (fo=2, routed)           0.380    15.909    vproc/core/if_stage_i/dec_data_q_reg[mode][8]_0
+    SLICE_X59Y197                                                     r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/I3
+    SLICE_X59Y197        LUT5 (Prop_lut5_I3_O)        0.043    15.952 r  vproc/core/if_stage_i/dec_data_q[mode][8]_i_1/O
+                         net (fo=4, routed)           0.366    16.318    vproc/core/if_stage_i/if_id_pipe_o_reg[instr][bus_resp][rdata][2]_2[8]
+    SLICE_X59Y194                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/I5
+    SLICE_X59Y194        LUT6 (Prop_lut6_I5_O)        0.043    16.361 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_41/O
+                         net (fo=1, routed)           0.233    16.594    vproc/core/if_stage_i/instr_state_q[12][0]_i_41_n_0
+    SLICE_X59Y193                                                     f  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/I1
+    SLICE_X59Y193        LUT2 (Prop_lut2_I1_O)        0.043    16.637 r  vproc/core/if_stage_i/instr_state_q[12][0]_i_25/O
+                         net (fo=1, routed)           0.178    16.816    vproc/v_core/result_if/instr_state_q[12][0]_i_8
+    SLICE_X61Y193                                                     r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    16.859 r  vproc/v_core/result_if/instr_state_q[12][0]_i_13/O
+                         net (fo=1, routed)           0.101    16.959    vproc/core/if_stage_i/instr_empty_res_q[4]_i_2_0
+    SLICE_X61Y193                                                     r  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/I0
+    SLICE_X61Y193        LUT6 (Prop_lut6_I0_O)        0.043    17.002 f  vproc/core/if_stage_i/instr_state_q[12][0]_i_8/O
+                         net (fo=7, routed)           0.162    17.164    vproc/core/if_stage_i/instr_state_q[12][0]_i_8_n_0
+    SLICE_X61Y193                                                     f  vproc/core/if_stage_i/result_csr_delayed_q_i_5/I1
+    SLICE_X61Y193        LUT6 (Prop_lut6_I1_O)        0.043    17.207 r  vproc/core/if_stage_i/result_csr_delayed_q_i_5/O
+                         net (fo=32, routed)          0.624    17.832    vproc/core/if_stage_i/dec_buf_valid_q_reg
+    SLICE_X61Y191                                                     r  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/I3
+    SLICE_X61Y191        LUT5 (Prop_lut5_I3_O)        0.043    17.875 f  vproc/core/if_stage_i/instr_state_q[6][1]_i_5/O
+                         net (fo=4, routed)           0.920    18.795    vproc/core/if_stage_i/x_ext.commit_valid_q_reg
+    SLICE_X61Y191                                                     f  vproc/core/if_stage_i/result_source_q[0]_i_3/I5
+    SLICE_X61Y191        LUT6 (Prop_lut6_I5_O)        0.043    18.838 f  vproc/core/if_stage_i/result_source_q[0]_i_3/O
+                         net (fo=6, routed)           0.399    19.237    vproc/v_core/result_if/result_empty_valid1_out
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_4/I0
+    SLICE_X58Y189        LUT4 (Prop_lut4_I0_O)        0.043    19.280 f  vproc/v_core/result_if/result_source_q[2]_i_4/O
+                         net (fo=1, routed)           0.364    19.643    vproc/v_core/result_if/result_source_q[2]_i_4_n_0
+    SLICE_X58Y189                                                     f  vproc/v_core/result_if/result_source_q[2]_i_2/I5
+    SLICE_X58Y189        LUT6 (Prop_lut6_I5_O)        0.043    19.686 r  vproc/v_core/result_if/result_source_q[2]_i_2/O
+                         net (fo=6, routed)           0.426    20.112    vproc/v_core/result_if/result_source_d[2]
+    SLICE_X58Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_8/I0
+    SLICE_X58Y189        LUT2 (Prop_lut2_I0_O)        0.043    20.155 r  vproc/v_core/result_if/next_id_q[3]_i_8/O
+                         net (fo=5, routed)           0.365    20.520    vproc/v_core/result_if/last_wr_q_reg
+    SLICE_X60Y189                                                     r  vproc/v_core/result_if/next_id_q[3]_i_4/I5
+    SLICE_X60Y189        LUT6 (Prop_lut6_I5_O)        0.043    20.563 f  vproc/v_core/result_if/next_id_q[3]_i_4/O
+                         net (fo=1, routed)           0.269    20.832    vproc/v_core/result_if/next_id_q[3]_i_4_n_0
+    SLICE_X60Y189                                                     f  vproc/v_core/result_if/next_id_q[3]_i_3/I0
+    SLICE_X60Y189        LUT5 (Prop_lut5_I0_O)        0.043    20.875 f  vproc/v_core/result_if/next_id_q[3]_i_3/O
+                         net (fo=6, routed)           0.124    20.999    vproc/core/ex_stage_i/vcore_xif\\.result_valid
+    SLICE_X60Y189                                                     f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/I0
+    SLICE_X60Y189        LUT6 (Prop_lut6_I0_O)        0.043    21.042 f  vproc/core/ex_stage_i/result_csr_valid_q_i_3/O
+                         net (fo=11, routed)          0.293    21.336    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/vcore_xif\\.result_ready
+    SLICE_X60Y187                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/I4
+    SLICE_X60Y187        LUT6 (Prop_lut6_I4_O)        0.043    21.379 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6/O
+                         net (fo=2, routed)           0.361    21.740    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_6_n_0
+    SLICE_X60Y187                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/I3
+    SLICE_X60Y187        LUT6 (Prop_lut6_I3_O)        0.043    21.783 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[6].unit/elem/state_res_valid_q_i_3/O
+                         net (fo=3, routed)           0.381    22.164    vproc/v_core/genblk9[0].pipe/pipeline/unpack/state_res_q_reg[first_cycle]
+    SLICE_X60Y185                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/I0
+    SLICE_X60Y185        LUT5 (Prop_lut5_I0_O)        0.043    22.207 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_state_q[1][op_load][4]_i_2/O
+                         net (fo=3, routed)           0.257    22.464    vproc/v_core/genblk9[0].pipe/pipeline/unpack/unit_mux/unit_queue_enq_valid1
+    SLICE_X60Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/I0
+    SLICE_X60Y183        LUT6 (Prop_lut6_I0_O)        0.043    22.507 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41/O
+                         net (fo=8, routed)           0.386    22.893    vproc/v_core/genblk9[0].pipe/pipeline/unpack/genblk1[0].genblk1_0.genblk1[0].genblk1[0].xlnx_ram32m_inst_i_41_n_0
+    SLICE_X61Y180                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/I4
+    SLICE_X61Y180        LUT5 (Prop_lut5_I4_O)        0.043    22.936 r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0/O
+                         net (fo=9, routed)           0.368    23.305    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_3__0_n_0
+    SLICE_X59Y183                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/I5
+    SLICE_X59Y183        LUT6 (Prop_lut6_I5_O)        0.043    23.348 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0/O
+                         net (fo=3, routed)           0.316    23.663    vproc/v_core/genblk9[0].pipe/pipeline/unpack/stage_valid_q[1]_i_2__0_n_0
+    SLICE_X58Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/I0
+    SLICE_X58Y183        LUT6 (Prop_lut6_I0_O)        0.043    23.706 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14/O
+                         net (fo=1, routed)           0.191    23.898    vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_14_n_0
+    SLICE_X57Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/I0
+    SLICE_X57Y183        LUT5 (Prop_lut5_I0_O)        0.043    23.941 f  vproc/v_core/genblk9[0].pipe/pipeline/unpack/mem_rvalid_i_11/O
+                         net (fo=1, routed)           0.299    24.240    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/unpack_ctrl_flags[pend_store]
+    SLICE_X56Y183                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/I5
+    SLICE_X56Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.283 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/mem_rvalid_i_8/O
+                         net (fo=1, routed)           0.303    24.586    vproc/v_core/instr_queue/genblk9[0].pending_store
+    SLICE_X54Y183                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_6/I5
+    SLICE_X54Y183        LUT6 (Prop_lut6_I5_O)        0.043    24.629 f  vproc/v_core/instr_queue/mem_rvalid_i_6/O
+                         net (fo=2, routed)           0.251    24.879    vproc/v_core/instr_queue/data_reg[0][0]_0
+    SLICE_X54Y184                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_4/I4
+    SLICE_X54Y184        LUT5 (Prop_lut5_I4_O)        0.043    24.922 f  vproc/v_core/instr_queue/mem_rvalid_i_4/O
+                         net (fo=1, routed)           0.398    25.320    vproc/v_core/instr_queue/vect_pending_store
+    SLICE_X53Y189                                                     f  vproc/v_core/instr_queue/mem_rvalid_i_1/I2
+    SLICE_X53Y189        LUT4 (Prop_lut4_I2_O)        0.043    25.363 r  vproc/v_core/instr_queue/mem_rvalid_i_1/O
+                         net (fo=2, routed)           0.255    25.619    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_req
+    SLICE_X50Y189                                                     r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/I3
+    SLICE_X50Y189        LUT6 (Prop_lut6_I3_O)        0.043    25.662 f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20/O
+                         net (fo=6, routed)           0.665    26.326    vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_0_i_20_n_0
+    SLICE_X23Y185                                                     f  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/I0
+    SLICE_X23Y185        LUT6 (Prop_lut6_I0_O)        0.043    26.369 r  vproc/v_core/genblk9[0].pipe/pipeline/unit_mux/genblk1[0].unit/lsu/lsu_queue/mem_reg_0_0_7_i_1/O
+                         net (fo=18, routed)          1.138    27.508    u_ram/mem_reg_1_0_7_0
+    RAMB36_X0Y45         RAMB36E1                                     r  u_ram/mem_reg_1_1_2/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_raw rise edge)   22.857    22.857 r  
+                         clock source latency         1.909    24.767    
+                         propagated clock network latency
+                                                      2.924    27.690    
+                         clock pessimism              0.337    28.027    
+                         clock uncertainty           -0.068    27.959    
+    RAMB36_X0Y45         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.328    27.631    u_ram/mem_reg_1_1_2
+  -------------------------------------------------------------------
+                         required time                         27.631    
+                         arrival time                         -27.508    
+  -------------------------------------------------------------------
+                         slack                                  0.124    
+
+
+
+
