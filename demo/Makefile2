@@ -29,11 +29,18 @@ ifeq ($(CORE), ibex)
   CLK_START ?= 80
   CLK_STEP  ?= 16
 else
-ifeq ($(BOARD), cv32e40x)
+ifeq ($(CORE), cv32e40x)
+  # CLK_START ?= 80
+  # CLK_START ?= 120
   CLK_START ?= 40
-  CLK_STEP  ?= 16
+  # CLK_START ?= 20
+  # CLK_STEP  ?= 16
+  CLK_STEP  ?= 32
 endif
 endif
+
+$(info CORE=$(CORE))
+$(info CLK_START=$(CLK_START))
 
 # board and associated part, constraints file and clock info
 BOARD  ?= nexysvideo
@@ -77,7 +84,7 @@ VMEM_W			 := 32
 # VREG_W       := 128
 # VPROC_CONFIG := compact
 # VPORT_POLICY := few
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 # VPROC_CONFIG := legacy
 
@@ -86,43 +93,129 @@ VMEM_W			 := 32
 # VPROC_CONFIG := dual
 # VPORT_POLICY := few
 # VLANE_W := 32
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 # small_new
 # VREG_W       := 128
 # VPROC_CONFIG := dual-zve32x
 # VPORT_POLICY := few
 # VLANE_W := 32
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 # small_new_fpu
-VREG_W       := 128
-VPROC_CONFIG := dual-zve32f
-VPORT_POLICY := few
-VLANE_W := 32
+# VREG_W       := 128
+# VPROC_CONFIG := dual-zve32f
+# VPORT_POLICY := few
+# VLANE_W := 32
+# # SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F"
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH XIF_ON"
+
+# scalar
+# VREG_W          := 128
+# VLANE_W         := 32
+# VMEM_W          := 32
+# VPROC_PIPELINES := $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VSLD,VDIV,VALU
+# SV_DEFINES      := ""
+
+# scalar_xif
+# VREG_W          := 128
+# VLANE_W         := 32
+# VMEM_W          := 32
+# VPROC_PIPELINES := $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VSLD,VDIV,VALU
+# SV_DEFINES      := "XIF_ON"
+
+# scalar_fpu
+# VREG_W          := 128
+# VLANE_W         := 32
+# VMEM_W          := 32
+# VPROC_PIPELINES := $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VSLD,VDIV,VALU
+# SV_DEFINES      := "XIF_ON RISCV_F"
+
+# poster_a
+# VREG_W          := 1024
+# VLANE_W         := 512
+# VMEM_W          := 32
+# VPROC_PIPELINES := $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VSLD,VDIV,VALU
+# SV_DEFINES      := "RISCV_ZVE32X XIF_ON"
+
+# poster_a_
+# VREG_W          := 1024
+# VLANE_W         := 512
+# VMEM_W          := 32
+# VPROC_PIPELINES := $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VSLD,VALU 32:VDIV
+# SV_DEFINES      := "RISCV_ZVE32X XIF_ON"
+
+# poster_b
+# VREG_W          := 512
+# VLANE_W         := 256
+# VMEM_W          := 32
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VDIV,VFPU
 # SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F"
-SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH"
+
+# poster_b_
+# VREG_W          := 512
+# VLANE_W         := 256
+# VMEM_W          := 32
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VFPU 32:VDIV
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F XIF_ON"
+
+# poster_c
+# VREG_W          := 256
+# VLANE_W         := 128
+# VMEM_W          := 32
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VDIV,VFPU
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH XIF_ON"
+
+# poster_c_
+# VREG_W          := 256
+# VLANE_W         := 128
+# VMEM_W          := 32
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VFPU 32:VDIV
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH XIF_ON"
+
+# poster_b_alt
+# VREG_W          := 512
+# VLANE_W         := 256
+# VMEM_W          := 64
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VDIV,VFPU
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F XIF_ON"
+
+# poster_c_alt
+VREG_W          := 256
+VLANE_W         := 128
+VMEM_W          := 32
+VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VFPU 32:VDIV
+SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH XIF_ON"
+
+# poster_c_alt_64
+# VREG_W          := 256
+# VLANE_W         := 128
+# VMEM_W          := 64
+# MEM_W := 64
+# VPROC_PIPELINES ?= $(VMEM_W):VLSU,VELEM $(VLANE_W):VMUL,VALU,VSLD,VFPU 32:VDIV
+# SV_DEFINES := "RISCV_ZVE32X RISCV_F RISCV_ZVE32F RISCV_ZFH RISCV_ZVFH XIF_ON"
+
 
 # medium
 # VREG_W       := 512
 # VPROC_CONFIG := dual
 # VPORT_POLICY := few
 # VLANE_W := 256
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 # medium_new
 # VREG_W       := 512
 # VPROC_CONFIG := dual-zve32x
 # VPORT_POLICY := few
 # VLANE_W := 256
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 # fast
 # VREG_W       := 2048
 # VPROC_CONFIG := dual
 # VPORT_POLICY := some
 # VLANE_W := 1024
-# SV_DEFINES := "RISCV_ZVE32X"
+# SV_DEFINES := "RISCV_ZVE32X XIF_ON"
 
 
 # include $(DEMO_DIR)/../config.mk
