@@ -117,8 +117,12 @@ for {set step 0} 1 {incr step} {
 
         # while we are here, print the resource utilization of that design
         report_utilization -hierarchical -file utilization_report.rpt
+        report_timing -file timing_report.rpt
+        report_timing -nworst 5 -path_type full -input_pins -file timing2_report.rpt
     } else {
         # timing failed, decrease clock frequency
+        report_timing -file failing_timing_report.rpt
+        report_timing -nworst 5 -path_type full -input_pins -file failing_timing_report.rpt
         puts $outf [format "\[FAIL\] %.2f MHz (WNS: %.3f)" $clk_freq $wc_slack]
         set start_freq [expr $start_freq - $step_sz]
     }
