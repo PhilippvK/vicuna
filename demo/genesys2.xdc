@@ -6,7 +6,7 @@
 ## Clock Signal
 set_property -dict { PACKAGE_PIN AD11  IOSTANDARD LVDS     } [get_ports { sys_clk_ni }];
 set_property -dict { PACKAGE_PIN AD12  IOSTANDARD LVDS     } [get_ports { sys_clk_pi }];
-create_clock -period 5.000 -name sysclk [get_ports sys_clk_pi]
+create_clock -period 50.0 -name sysclk [get_ports sys_clk_pi]
 set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets sys_clk_pi]
 
 ## Buttons
