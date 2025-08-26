@@ -5,6 +5,7 @@
 
     .section .vectors, "ax", @progbits
     .option norvc;
+    .global vector_table
 
     # redirect all interrupts to the execption wrapper
     .rept 31
@@ -79,16 +80,17 @@ exc_wrapper:
     # save mepc, mie and mstatus:
     csrr t0, mie
     csrr t1, mstatus
-    csrr a1, mepc
+    csrr t2, mepc
     sw t0, 0(sp)
     sw t1, 4(sp)
-    sw a1, 8(sp)
+    sw t2, 8(sp)
 
-    # call exception handler (a0 = mcause, a1 = mepc, a2 = mtval, a3 = fp)
-    csrr a0, mcause
-    csrr a2, mtval
-    lw a3, 72(sp)
-    call exception_handler
+    # # call exception handler (a0 = mcause, a1 = mepc, a2 = mtval, a3 = fp)
+    # csrr a0, mcause
+    # csrr a2, mtval
+    # lw a3, 72(sp)
+    # call exception_handler
+    jal x0, default_exception_handler_c
 
     # restore mepc, mie and mstatus (restoring mstatus disables interrupts):
     lw t0, 0(sp)

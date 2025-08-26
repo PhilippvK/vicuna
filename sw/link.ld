@@ -20,8 +20,17 @@ STACK_LEN = 0x4000; /* 16 kB */
 SECTIONS
 {
     .vectors 0 : {
-        *(.vectors)
+        /* *(.vectors) */
+        KEEP(*(.vectors))
     } >boot
+
+
+  /* CORE-V: interrupt vectors */
+    .vectors (ORIGIN(ram)):
+    {
+        PROVIDE(__vector_start = .);
+        KEEP(*(.vectors));
+    } >ram
 
     .text : {
         . = ALIGN(4);
